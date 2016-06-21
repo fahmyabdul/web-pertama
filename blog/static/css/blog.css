@@ -53,6 +53,10 @@ h6, .h6 {
   border-left: 8px solid transparent;
 }
 
+.blog-nav a{
+    color:#fff;
+}
+
 .page-header {
     background-color: #1C2331;
     margin-top: 0;

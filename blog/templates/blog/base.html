@@ -20,22 +20,24 @@
           <a class="blog-nav-item" href="#">Press</a>
           <a class="blog-nav-item" href="#">New hires</a>
           <a class="blog-nav-item" href="#">About</a>
+		  {% if user.is_authenticated %}
+		  <span class="blog-nav-item">Hello, {{ user.username }} ( <a href="{% url 'logout' %}">Log out</a> )</span>
+		  {% else %}
+		  <a href="{% url 'login' %}" class="blog-nav-item"><span class="glyphicon glyphicon-lock"></span></a>
+		  {% endif %}
         </nav>
       </div>
     </div>
 	    <div class="page-header">
 	        <span class="title"><a href="/">Personalweb Blog</a></span>
-		    {% if user.is_authenticated %}
-		    <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-		    <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
-		    <p class="top-menu">Hello {{ user.username }}<small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
-		    {% else %}
-		    <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
-		    {% endif %}
 	    </div>
 	    <div class="content container">
 	        <div class="row">
 	            <div class="col-md-8">
+			    {% if user.is_authenticated %}
+			    <a href="{% url 'post_new' %}"><span class="glyphicon glyphicon-plus"></span> Post Baru</a>
+			    &nbsp;<a href="{% url 'post_draft_list' %}"><span class="glyphicon glyphicon-edit"></span> Draft Post</a>
+			    {% endif %}
 	            {% block content %}
 	            {% endblock %}
 	            </div>
@@ -47,18 +49,8 @@
           <div class="sidebar-module">
             <h4>Archives</h4>
             <ol class="list-unstyled">
-              <li><a href="#">March 2014</a></li>
-              <li><a href="#">February 2014</a></li>
-              <li><a href="#">January 2014</a></li>
-              <li><a href="#">December 2013</a></li>
-              <li><a href="#">November 2013</a></li>
-              <li><a href="#">October 2013</a></li>
-              <li><a href="#">September 2013</a></li>
-              <li><a href="#">August 2013</a></li>
-              <li><a href="#">July 2013</a></li>
-              <li><a href="#">June 2013</a></li>
-              <li><a href="#">May 2013</a></li>
-              <li><a href="#">April 2013</a></li>
+              <li><a href="#">March 2016</a></li>
+              <li><a href="#">February 2016</a></li>
             </ol>
           </div>
           <div class="sidebar-module">
