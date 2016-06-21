@@ -15,10 +15,9 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="blog-nav">
-          <a class="blog-nav-item active" href="/">Home</a>
-          <a class="blog-nav-item" href="#">New features</a>
-          <a class="blog-nav-item" href="#">Press</a>
-          <a class="blog-nav-item" href="#">New hires</a>
+          <a class="blog-nav-item active" href="/">Beranda</a>
+          <a class="blog-nav-item" href="#">Kategori</a>
+          <a class="blog-nav-item" href="#">Hot</a>
           <a class="blog-nav-item" href="#">About</a>
 		  {% if user.is_authenticated %}
 		  <span class="blog-nav-item">Hello, {{ user.username }} ( <a href="{% url 'logout' %}">Log out</a> )</span>
@@ -35,8 +34,10 @@
 	        <div class="row">
 	            <div class="col-md-8">
 			    {% if user.is_authenticated %}
+			    <div style="text-align:right;">
 			    <a href="{% url 'post_new' %}"><span class="glyphicon glyphicon-plus"></span> Post Baru</a>
 			    &nbsp;<a href="{% url 'post_draft_list' %}"><span class="glyphicon glyphicon-edit"></span> Draft Post</a>
+			    </div>
 			    {% endif %}
 	            {% block content %}
 	            {% endblock %}

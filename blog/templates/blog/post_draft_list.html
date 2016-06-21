@@ -1,6 +1,7 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+    <h1>Draft Post</h1>
     {% for post in posts %}
         <div class="post">
             <p class="date">created: {{ post.created_date|date:'d-m-Y' }}</p>
@@ -9,7 +10,7 @@
         </div>
 	{% empty %}
         <div class="post">
-            <h1>Tidak ada Draft Post :)</h1>
+            <p>Tidak ada Draft Post :)</p>
         </div>
     {% endfor %}
 {% endblock %}
