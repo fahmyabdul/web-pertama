@@ -1,0 +1,116 @@
+{% load staticfiles %}
+<html>
+	<head>
+		<title>Main Web View</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<style>
+			.headtop{
+				background-color: #F8F8F8;
+				padding-top: 10px;
+				padding-bottom: 10px;
+				text-align: center;
+			}
+			.navbar{
+				margin-bottom:0px;
+				z-index: 100;
+			}
+			.navbar .navbar-nav {
+				display: inline-block;
+				float: none;
+			}
+			.navbar .navbar-collapse {
+				text-align: center;
+			}
+			.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
+				background-color: inherit;
+				border-bottom: solid 3px #E24329;
+			}
+			.jumbotron{
+				padding-top: 120px;
+				padding-bottom: 120px;
+				background-color: #000;
+			}
+			.affix {
+			    top: 0;
+			    width: 100%;
+			 }
+			.profile-image{
+				width:150px; height:150px; border-radius:100%; border:solid 2px #000; top:-110; position:relative; 
+				text-align:center; margin:0 auto;
+				background-color: #fff;
+				z-index: 50;
+			}
+			.profile-spacer{
+				 top:-180; 
+				 padding-top:58px;
+				 padding-bottom: 10px;
+				 position:relative;
+				 background-color: #eee;
+				 text-align: center;
+			}
+			.profile-spacer > h3{
+				margin-top:0;
+			}
+			.con-body{
+				 top:-180; 
+				 position:relative;
+				 text-align: center;
+				 padding:0;
+			}
+			.section-1{
+				 margin: 0 auto;
+				 background-color:#E24329;
+				 padding: 10px;
+				 color:#000;
+			}
+		</style>
+	</head>
+	<body>
+	<div class="headtop">
+		<div class="container-fluid">
+			<img src="{% static 'img/ninja.png' %}" width="36" height="36">
+		</div>
+	</div>
+		<nav class="navbar navbar-default" data-spy="affix" data-offset-top="67">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	        </div>
+	        <div id="navbar" class="navbar-collapse collapse">
+	          <ul class="nav navbar-nav">
+	            <li class="active"><a href="#">Home</a></li>
+	            <li><a href="#about">About</a></li>
+	            <li><a href="#hobby">Hobby</a></li>
+	            <li><a href="#blog">Blog</a></li>
+	            <li><a href="#contact">Contact</a></li>
+	          </ul>
+	        </div>
+	      </div>
+    	</nav>
+      	<div class="jumbotron">
+	      	<div class="container-fluid">
+	      	<p style="text-align:center; color:#fff;">PERSONAL WEB OF MUHAMMAD FAHMY</p>
+	        </div>
+      	</div>
+	        <div class="profile-image">&nbsp;</div>
+	        <div class="profile-spacer">
+	        	<h2>Muhammad Fahmy Abdul Hakim</h2>
+	        	<h3>Web Developer & Billing Operator in Cimahi, Indonesia</h3>
+	        </div>
+      	<div class="container-fluid con-body">
+	      	<div class="section-1" id="about">
+	      		<h1>ABOUT</h1>
+	      	</div>
+		</div>
+	</body>
+</html>
