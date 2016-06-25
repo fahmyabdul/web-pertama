@@ -18,6 +18,7 @@
 			.navbar{
 				margin-bottom:0px;
 				z-index: 100;
+				border-radius: 0;
 			}
 			.navbar .navbar-nav {
 				display: inline-block;
@@ -28,45 +29,124 @@
 			}
 			.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
 				background-color: inherit;
-				border-bottom: solid 3px #E24329;
+				border-bottom: solid 3px #0e83cd;
 			}
 			.jumbotron{
-				padding-top: 120px;
-				padding-bottom: 120px;
+				padding-top: 165px;
+				padding-bottom: 165px;
 				background-color: #000;
+				background: url('{% static 'img/headers.png' %}') no-repeat;
+    			background-size: cover;
+    			background-position: center center;   
+        		filter:opacity(75%);
+        		-webkit-filter:opacity(75%);
+        		-moz-filter:opacity(75%);
+        		transition: all 0.2s linear;
+			}
+			.jumbotron:hover{
+        		filter:opacity(100%);
+        		-webkit-filter:opacity(100%);
+        		-moz-filter:opacity(100%);
+        		transition: all 0.2s linear;
 			}
 			.affix {
 			    top: 0;
 			    width: 100%;
 			 }
 			.profile-image{
-				width:150px; height:150px; border-radius:100%; border:solid 2px #000; top:-110; position:relative; 
-				text-align:center; margin:0 auto;
-				background-color: #fff;
+				width:150px; height:150px; border-radius:100%; border:solid 2px #cecece; top:-110; position:relative; 
+				text-align:center; 
+				margin:0 auto;
 				z-index: 50;
+				background: #ffffff url('{% static 'img/cat.jpg' %}') no-repeat;
+    			background-size: cover;
 			}
 			.profile-spacer{
 				 top:-180; 
 				 padding-top:58px;
-				 padding-bottom: 10px;
 				 position:relative;
-				 background-color: #eee;
+				 background-color: #e5e5e5;
 				 text-align: center;
+				 margin-bottom: -180;
+				 border-left: solid 8px #cecece;
+				 border-right: solid 8px #cecece;
 			}
 			.profile-spacer > h3{
 				margin-top:0;
 			}
+			.profile-spacer::after{
+				width: 0;
+				height: 0;
+				border-left: 30px solid transparent;
+				border-right: 30px solid transparent;
+				border-top: 30px solid #e5e5e5; 
+				-moz-transform: scale(.9999);
+				position: relative;
+    			content: "";
+    			z-index: 2;
+    			top: 48;
+			}
 			.con-body{
-				 top:-180; 
 				 position:relative;
-				 text-align: center;
 				 padding:0;
 			}
 			.section-1{
-				 margin: 0 auto;
-				 background-color:#E24329;
-				 padding: 10px;
-				 color:#000;
+				 background-color:#49ab81;
+				 font-size: 16px;
+				 color: #fff;
+				 text-align: center;
+			}
+			.section-1 p{
+				text-align: justify;
+			}
+			.section-1::after{
+				width: 0;
+				height: 0;
+				border-left: 30px solid transparent;
+				border-right: 30px solid transparent;
+				border-top: 30px solid #49ab81; 
+				-moz-transform: scale(.9999);
+				position: relative;
+    			content: "";
+    			z-index: 3;
+    			top: 47;
+			}
+			.section-2{
+				 background-color:#398564;
+				 font-size: 16px;
+				 color:#fff;
+				 text-align: center;
+			}
+			.section-2 p{
+				text-align: justify;
+			}
+			.section-3{
+				 background-color:#000;
+				 font-size: 16px;
+				 color: #FF6347;
+				 text-align: center;
+			}
+			.section-3 p{
+				text-align: justify;
+				 color: #fff;
+			}
+			.row.edit{
+				margin-top:40px; padding-bottom:0px;
+			}
+			.icon{
+				background:#83d0c9; display:table; padding:10px; width:80px; height:80px; line-height:60px; font-size:28px;
+				margin:0 auto;
+				position: relative;
+				top: -30;
+				margin-bottom: -30;
+        		transition: all 0.5s linear;
+			}
+			.icon:hover{
+				transform: rotate(360deg);
+        		transition: all 0.5s linear;
+			}
+			.icon span{
+				display:table-cell; vertical-align:middle;
 			}
 		</style>
 	</head>
@@ -97,20 +177,62 @@
 	        </div>
 	      </div>
     	</nav>
-      	<div class="jumbotron">
-	      	<div class="container-fluid">
-	      	<p style="text-align:center; color:#fff;">PERSONAL WEB OF MUHAMMAD FAHMY</p>
-	        </div>
+    	<div class="container">
+      	<div class="jumbotron" style="border-radius:0;">
       	</div>
 	        <div class="profile-image">&nbsp;</div>
 	        <div class="profile-spacer">
 	        	<h2>Muhammad Fahmy Abdul Hakim</h2>
-	        	<h3>Web Developer & Billing Operator in Cimahi, Indonesia</h3>
+	        	<h4>Web Developer in Cimahi, Indonesia</h4>
+	        	<h5 style="color:#666666;">- Keep It Stupid Simple -</h5>
 	        </div>
       	<div class="container-fluid con-body">
 	      	<div class="section-1" id="about">
-	      		<h1>ABOUT</h1>
+	      		<div class="container-fluid" style="padding-top:30px; padding-bottom:20px;">
+	      			<div><h1>ABOUT</h1></div>
+	      			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	      			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	      			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	      		</div>
 	      	</div>
+	      	<div class="section-2" id="hobby">
+	      		<div class="container-fluid" style="padding-top:20px;">
+	      			<div><h1>HOBBY</h1></div>
+					<div class="row edit">
+					  <div class="col-md-4" style="background:#65c3ba; padding:0px;">
+					  <div class="icon"><span class="glyphicon glyphicon-pencil"></span></div>
+					  <div style="padding:20px; text-align:justify;">
+	      			  <div style="text-align:center;"><h2 style="margin:0; padding:0; padding-bottom:5px;">Drawing</h2></div>
+					  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					  </div>
+					  </div>
+					  <div class="col-md-4" style="background:#54b2a9; padding:0px;">
+					  <div class="icon"><span class="glyphicon glyphicon-console"></span></div>
+					  <div style="padding:20px; text-align:justify;">
+	      			  <div style="text-align:center;"><h2 style="margin:0; padding:0; padding-bottom:5px;">Coding</h2></div>
+					  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					  </div>
+					  </div>
+					  <div class="col-md-4" style="background:#35a79c; padding:0px;">
+					  <div class="icon"><span class="glyphicon glyphicon-book"></span></div>
+					  <div style="padding:20px; text-align:justify;">
+	      			  <div style="text-align:center;"><h2 style="margin:0; padding:0; padding-bottom:5px;">Reading</h2></div>
+					  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					  </p>
+					  </div>
+					  </div>
+					</div>
+	      		</div>
+	      	</div>
+	      	<div class="section-3" id="blog">
+	      		<div class="container-fluid" style="padding-top:20px; padding-bottom:20px;">
+	      			<div><h1>BLOG</h1></div>
+	      			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	      			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	      			<div style="text-align:right;"><button class="btn">Klik Disini</button></div>
+	      		</div>
+	      	</div>
+		</div>
 		</div>
 	</body>
 </html>
