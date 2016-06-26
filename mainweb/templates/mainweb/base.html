@@ -54,25 +54,24 @@
 			    width: 100%;
 			 }
 			.profile-image{
-				width:150px; height:150px; border-radius:100%; border:solid 2px #cecece; top:-110; position:relative; 
+				width:150px; height:150px; border-radius:100%; border:solid 3px #cecece; top:-110; position:relative; 
 				text-align:center; 
 				margin:0 auto;
 				z-index: 50;
 				background: #ffffff url('{% static 'img/cat.jpg' %}') no-repeat;
     			background-size: cover;
+        		transition: all 0.2s linear;
 			}
 			.profile-spacer{
 				 top:-180; 
 				 padding-top:58px;
+				 padding-bottom: 0px;
 				 position:relative;
 				 background-color: #e5e5e5;
 				 text-align: center;
 				 margin-bottom: -180;
 				 border-left: solid 8px #cecece;
 				 border-right: solid 8px #cecece;
-			}
-			.profile-spacer > h3{
-				margin-top:0;
 			}
 			.profile-spacer::after{
 				width: 0;
@@ -84,7 +83,28 @@
 				position: relative;
     			content: "";
     			z-index: 2;
-    			top: 48;
+    			top: 47;
+			}
+			.profile-add{
+				padding:0;
+				margin:0;
+				margin-bottom: -20;
+			}
+			.profile-add > h5{
+				padding:0;
+				margin:0;
+			}
+			.profile-add::after{
+				width: 0;
+				height: 0;
+				border-left: 35px solid transparent;
+				border-right: 35px solid transparent;
+				border-top: 35px solid #398564; 
+				-moz-transform: scale(.9999);
+				position: relative;
+    			content: "";
+    			z-index: 2;
+    			top: 57;
 			}
 			.con-body{
 				 position:relative;
@@ -95,6 +115,7 @@
 				 font-size: 16px;
 				 color: #fff;
 				 text-align: center;
+				 border-top: solid 8px #398564;
 			}
 			.section-1 p{
 				text-align: justify;
@@ -148,6 +169,25 @@
 			.icon span{
 				display:table-cell; vertical-align:middle;
 			}
+			.head-lines{
+				width:200px; border:solid 1px;
+			}
+			.head-lines::after{
+				top:-10;
+				margin-bottom: 10px;
+				padding-top:2px;
+				padding-bottom:2px;
+				padding-right:8px;
+				padding-left:8px;
+				background: #49ab81;
+				border: solid 2px #fff; 
+				position: relative;
+    			content: "-";
+    			color: transparent;
+    			z-index: 3;
+				-moz-transform: scale(.9999);
+				-webkit-transform: scale(.9999);
+			}
 		</style>
 	</head>
 	<body>
@@ -182,14 +222,17 @@
       	</div>
 	        <div class="profile-image">&nbsp;</div>
 	        <div class="profile-spacer">
-	        	<h2>Muhammad Fahmy Abdul Hakim</h2>
-	        	<h4>Web Developer in Cimahi, Indonesia</h4>
-	        	<h5 style="color:#666666;">- Keep It Stupid Simple -</h5>
+		        <div class="profile-add">
+		        	<h2>Muhammad Fahmy Abdul Hakim</h2>
+		        	<h4>Web Developer in Cimahi, Indonesia</h4>
+		        	<h5 style="color:#666666;">- Keep It Stupid Simple -</h5>
+		        </div>
 	        </div>
       	<div class="container-fluid con-body">
 	      	<div class="section-1" id="about">
 	      		<div class="container-fluid" style="padding-top:30px; padding-bottom:20px;">
 	      			<div><h1>ABOUT</h1></div>
+	      			<hr class="head-lines">
 	      			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 	      			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 	      			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -199,24 +242,24 @@
 	      		<div class="container-fluid" style="padding-top:20px;">
 	      			<div><h1>HOBBY</h1></div>
 					<div class="row edit">
-					  <div class="col-md-4" style="background:#65c3ba; padding:0px;">
+					  <div class="col-md-4" style="background:#65c3ba; padding:0px; border-top:solid 4px #54b2a9;">
 					  <div class="icon"><span class="glyphicon glyphicon-pencil"></span></div>
 					  <div style="padding:20px; text-align:justify;">
-	      			  <div style="text-align:center;"><h2 style="margin:0; padding:0; padding-bottom:5px;">Drawing</h2></div>
+	      			  <div style="text-align:center;"><h2 style="margin:0; margin-top: -12px; letter-spacing: 2px; padding:0; padding-bottom:5px;">- Drawing -</h2></div>
 					  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 					  </div>
 					  </div>
-					  <div class="col-md-4" style="background:#54b2a9; padding:0px;">
+					  <div class="col-md-4" style="background:#54b2a9; padding:0px;border-top:solid 4px #35a79c;">
 					  <div class="icon"><span class="glyphicon glyphicon-console"></span></div>
 					  <div style="padding:20px; text-align:justify;">
-	      			  <div style="text-align:center;"><h2 style="margin:0; padding:0; padding-bottom:5px;">Coding</h2></div>
+	      			  <div style="text-align:center;"><h2 style="margin:0; margin-top: -12px; letter-spacing: 2px; padding:0; padding-bottom:5px;">- Coding -</h2></div>
 					  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 					  </div>
 					  </div>
-					  <div class="col-md-4" style="background:#35a79c; padding:0px;">
+					  <div class="col-md-4" style="background:#35a79c; padding:0px; border-top:solid 4px #54b2a9;">
 					  <div class="icon"><span class="glyphicon glyphicon-book"></span></div>
 					  <div style="padding:20px; text-align:justify;">
-	      			  <div style="text-align:center;"><h2 style="margin:0; padding:0; padding-bottom:5px;">Reading</h2></div>
+	      			  <div style="text-align:center;"><h2 style="margin:0; margin-top: -12px; letter-spacing: 2px; padding:0; padding-bottom:5px;">- Reading -</h2></div>
 					  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 					  </p>
 					  </div>
