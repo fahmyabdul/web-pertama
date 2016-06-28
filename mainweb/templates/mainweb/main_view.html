@@ -14,7 +14,7 @@
 		<style>
 		</style>
 	</head>
-	<body>
+	<body data-spy="scroll" data-target=".navbar">
 	<div class="headtop">
 		<div class="container-fluid">
 			<img src="{% static 'img/cat.jpg' %}" width="36" height="36" class="img-rounded"> Personal Website
@@ -56,8 +56,8 @@
 	      		<div class="container" style="padding-top:30px; padding-bottom:20px;">
 	      			{% for bagian in bagians %}
 	      				{% if bagian.bagian_judul = 'ABOUT' %}
-	      			<div><h1>{{ bagian.bagian_judul }}</h1></div>
-	      			<hr class="head-lines">
+			      			<div><h1>{{ bagian.bagian_judul }}</h1></div>
+			      			<hr class="head-lines">
 	      					<p>{{ bagian.bagian_isi|safe|linebreaks }}</p>
 	      				{% endif %}
 	      			{% endfor %}
@@ -73,10 +73,10 @@
 			      				{% if bagian.bagian_judul = 'Drawing' %}
 						  <div class="icon"><span class="glyphicon glyphicon-pencil"></span></div>
 						  <div style="padding:20px; text-align:justify;">
-		      			  <div style="text-align:center;"><h2 style="margin:0; margin-top: -12px; letter-spacing: 2px; padding:0; padding-bottom:5px;">- {{ bagian.bagian_judul }} -</h2></div>
-		      			  <div class="container-fluid">
-			      					<p>{{ bagian.bagian_isi|safe|linebreaks }}</p>
-						  </div>
+			      			  <div style="text-align:center;"><h2 style="margin:0; margin-top: -12px; letter-spacing: 2px; padding:0; padding-bottom:5px;">- {{ bagian.bagian_judul }} -</h2></div>
+			      			  <div class="container-fluid">
+				      					<p>{{ bagian.bagian_isi|safe|linebreaks }}</p>
+							  </div>
 						  </div>
 			      				{% endif %}
 			      			{% endfor %}
@@ -86,10 +86,10 @@
 			      				{% if bagian.bagian_judul = 'Coding' %}
 						  <div class="icon"><span class="glyphicon glyphicon-console"></span></div>
 						  <div style="padding:20px; text-align:justify;">
-		      			  <div style="text-align:center;"><h2 style="margin:0; margin-top: -12px; letter-spacing: 2px; padding:0; padding-bottom:5px;">- {{ bagian.bagian_judul }} -</h2></div>
-		      			  <div class="container-fluid">
-			      					<p>{{ bagian.bagian_isi|safe|linebreaks }}</p>
-						  </div>
+			      			  <div style="text-align:center;"><h2 style="margin:0; margin-top: -12px; letter-spacing: 2px; padding:0; padding-bottom:5px;">- {{ bagian.bagian_judul }} -</h2></div>
+			      			  <div class="container-fluid">
+				      					<p>{{ bagian.bagian_isi|safe|linebreaks }}</p>
+							  </div>
 						  </div>
 			      				{% endif %}
 			      			{% endfor %}
@@ -99,10 +99,10 @@
 			      				{% if bagian.bagian_judul = 'Reading' %}
 						  <div class="icon"><span class="glyphicon glyphicon-book"></span></div>
 						  <div style="padding:20px; text-align:justify;">
-		      			  <div style="text-align:center;"><h2 style="margin:0; margin-top: -12px; letter-spacing: 2px; padding:0; padding-bottom:5px;">- {{ bagian.bagian_judul }} -</h2></div>
-		      			  <div class="container-fluid">
-			      					<p>{{ bagian.bagian_isi|safe|linebreaks }}</p>
-						  </div>
+			      			  <div style="text-align:center;"><h2 style="margin:0; margin-top: -12px; letter-spacing: 2px; padding:0; padding-bottom:5px;">- {{ bagian.bagian_judul }} -</h2></div>
+			      			  <div class="container-fluid">
+				      					<p>{{ bagian.bagian_isi|safe|linebreaks }}</p>
+							  </div>
 						  </div>
 			      				{% endif %}
 			      			{% endfor %}
@@ -114,12 +114,27 @@
 	      		<div class="container" style="padding-top:20px; padding-bottom:20px;">
 					{% for bagian in bagians %}
 			      		{% if bagian.bagian_judul = 'BLOG' %}
-	      			<div><h1>{{ bagian.bagian_judul }}</h1></div>
-	      			<hr class="head-lines">
-			      			<p>{{ bagian.bagian_isi|safe|linebreaksbr }}</p>
+			      			<div><h1>{{ bagian.bagian_judul }}</h1></div>
+			      			<hr class="head-lines">
+			      			<div class="row">
+			      				<div class="col-md-2">
+			      				<div style="background:#fff; border:solid thin #fff; color: #dc7b72; text-align:center; font-size:43px;">
+			      				<span class="hidden-xs">B<br>
+			      				L<br>
+			      				O<br>
+			      				G<br></span>
+			      				<span class="visible-xs">BLOG</span>
+			      				</div>
+			      				</div>
+			      				<div class="col-md-10">
+			      				<div>
+			      				<p>{{ bagian.bagian_isi|safe|linebreaksbr }}</p>
+	      						<div style="text-align:right;"><button class="btn">Klik Disini</button></div>
+	      						</div>
+			      				</div>
+			      			</div>
 			      		{% endif %}
 			      	{% endfor %}
-	      			<div style="text-align:right;"><button class="btn">Klik Disini</button></div>
 	      		</div>
 	      	</div>
 	      	<div class="section-4" id="contact">
@@ -128,16 +143,18 @@
 	      			<hr class="head-lines">
 					  	<div style="color:#fff;">
 					  		<div class="container-fluid">
-					  		<p><h3 style="">E-mail</h3></p>
-					  		<p><h4><span class="glyphicon glyphicon-envelope"></span> firstfahmyabdul@gmail.com | myyz21st@gmail.com</h4></p>
-					  		<p><h3 style="">Social Media</h3></p>
+						  		<p><h3 style="">E-mail</h3></p>
+						  		<p><h4><span class="glyphicon glyphicon-envelope"></span> firstfahmyabdul@gmail.com | myyz21st@gmail.com</h4></p>
+						  		<p><h3 style="">Social Media</h3></p>
 					  		<div>
-						  	<a href="https://facebook.com/21st.march" target="blank">
-						  	<div class="social-button" style="margin-right:5px;">f</div></a>
-						  	<div class="social-button" style="margin-right:5px;">t</div>
-						  	<a href="https://plus.google.com/u/0/107243255635518648586" target="blank">
-						  	<div class="social-button" style="margin-right:5px;">g+</div></a>
-						  	<div class="social-button" style="width:80px;">tumblr</div>
+							  	<a href="https://facebook.com/21st.march" target="blank">
+							  	<div class="social-button" style="margin-right:5px;">f</div>
+							  	</a>
+							  	<div class="social-button" style="margin-right:5px;">t</div>
+							  	<a href="https://plus.google.com/u/0/107243255635518648586" target="blank">
+							  	<div class="social-button" style="margin-right:5px;">g+</div>
+							  	</a>
+							  	<div class="social-button" style="width:80px;">tumblr</div>
 						  	</div>
 					  		</div>
 					  	</div>

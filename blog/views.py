@@ -1,10 +1,8 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from django.shortcuts import render, get_object_or_404
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
-from django.shortcuts import redirect
 
 def post_list(request):
 	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')

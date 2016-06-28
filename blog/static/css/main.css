@@ -340,7 +340,7 @@
 				display:table-cell; vertical-align:middle;
 			}
 			.head-lines{
-				width:260px; border:solid 1px #fff;
+				width:280px; border:solid 1px #fff;
 			}
 			.head-lines::after{
 				top:-10;
