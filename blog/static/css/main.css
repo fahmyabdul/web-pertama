@@ -1,42 +1,105 @@
-			@-moz-keyframes dropHeader {
+			@-moz-keyframes HeaderColoring {
 			    50% {
 					background-color: #eee;
 			    }
 			}
-			@-webkit-keyframes dropHeader{
+			@-webkit-keyframes HeaderColoring{
 				50%{
 					background-color: #eee;
 				}
 			}
-			@keyframes dropHeader{
+			@keyframes HeaderColoring{
 				50%{
 					transform: translateY(0);
 					background-color: #eee;
 				}
+			}
+
+			@-webkit-keyframes dropEffect{
+				0%{
+					-webkit-transform: translateY(-80%);
+				}
+				100%{
+					-webkit-transform: translateY(0%);
+				}
+			}
+
+			@-moz-keyframes dropEffect{
+				0%{
+					-moz-transform: translateY(-100%);
+				}
+				100%{
+					-moz-transform: translateY(0%);
+				}
+			}
+
+			@keyframes dropEffect{
+				0%{
+					transform: translateY(-80%);
+				}
+				100%{
+					transform: translateY(0%);
+				}
+			}
+			.navbar-brand {
+				padding: 0px; /* firefox bug fix */
+        		margin-right: -120px;
+				display: none;
+			}
+			.navbar-brand>img {
+			 	height: 100%;
+			 	padding: 5px; /* firefox bug fix */
+			 	width: auto;
+			 	display: none;
+			}
+			.navbar-default{
+				border-left: none;
+				border-right: none;
+        	 	border-bottom:solid 2px #0e83cd;
+        	}
+			.navbar-default .navbar-brand{
+        		color:#0e83cd;
 			}
 			.headtop{
 				background-color: #F8F8F8;
 				padding-top: 10px;
 				padding-bottom: 10px;
 				text-align: center;
-				-moz-animation-name:dropHeader;
+				-moz-animation-name:HeaderColoring;
 			    -moz-animation-iteration-count: 1;
 			    -moz-animation-timing-function: ease-out;
 			    -moz-animation-duration: 0.6s;
 
-				-webkit-animation-name:dropHeader;
+				-webkit-animation-name:HeaderColoring;
 				-webkit-animation-iteration-count: 1;
 				-webkit-animation-timing-function: ease-out;
 				-webkit-animation-duration: 0.6s;
 
-				animation-name:dropHeader;
+				animation-name:HeaderColoring;
 				animation-iteration-count: 1;
 				animation-timing-function: ease-out;
 				animation-duration: 0.6s;
 			}
 			.headicon{
-				 font-size:24px; color:#0e83cd;
+				font-size:24px; color:#0e83cd;
 			}
+			.headicon .img-circle{
+        		-webkit-filter:opacity(100%);
+        		-moz-filter:opacity(100%); 
+        		filter:opacity(100%);
+        		-moz-transition: all 0.2s linear;
+        		-webkit-transition: all 0.2s linear;
+        		transition: all 0.2s linear;
+
+			}
+			.headicon .img-circle:hover{
+        		-webkit-filter:opacity(75%);
+        		-moz-filter:opacity(75%); 
+        		filter:opacity(75%);
+        		-moz-transition: all 0.2s linear;
+        		-webkit-transition: all 0.2s linear;
+        		transition: all 0.2s linear;
+        	}
 			.navbar{
 				margin-bottom:0px;
 				z-index: 100;
@@ -82,7 +145,8 @@
 				padding:0;
 			}
 			.jumbotron span.arab{
-				font-size:22px;
+				font-size:24px;
+				letter-spacing: 0px;
 			}
 			@media screen and (max-width: 767px) {
 				.jumbotron p{
@@ -92,7 +156,7 @@
 					font-size:14px;
 				}
 				.jumbotron span.arab{
-					font-size:18px;
+					font-size:20px;
 				}
 			}
 			.jumbotron:hover{
@@ -108,6 +172,29 @@
 			    top: 0;
 			    width: 100%;
 			 }
+			 .affix.navbar{
+			 	box-shadow: 0px 2px 5px rgba(0,0,0,0.5);
+				-webkit-animation-name:dropEffect;
+				-webkit-animation-iteration-count: 1;
+				-webkit-animation-timing-function: ease-out;
+				-webkit-animation-duration: 0.6s;
+
+				-moz-animation-name:dropEffect;
+				-moz-animation-iteration-count: 1;
+				-moz-animation-timing-function: ease-out;
+				-moz-animation-duration: 0.6s;
+
+				animation-name:dropEffect;
+				animation-iteration-count: 1;
+				animation-timing-function: ease-out;
+				animation-duration: 0.6s;
+			 }
+			 .affix .navbar-brand>img {
+			    display: inline-block;
+			}
+			 .affix .navbar-brand {
+			    display: inline-block;
+			}
 			.profile-image{
 				width:150px; height:150px; border-radius:100%; border:solid 3px #cecece; top:-110; position:relative; 
 				text-align:center; 
@@ -292,6 +379,20 @@
 				text-align: center;
 				color: #fff;
 			}
+			.section-3 .btn{
+				background:#fff; color:#dc7b72;
+				text-align:center;
+				font-size:18px; font-weight: bold;
+				transition: 0.4s ease-in;
+				border:solid 2px #fff;
+				border-radius: 0;
+			}
+			.section-3 .btn:hover{
+				background:transparent; color:#fff;
+				cursor: pointer;
+				transition: 0.4s ease-in;
+				border:solid 2px #fff;
+			}
 			.section-3 .head-lines::after{
 				background:#dc7b72;
 			}
@@ -399,7 +500,7 @@
 				border:solid 2px #fff;
 			}
 			.social-button:hover{
-				background:#1ea4d9; color:#fff;
+				background:transparent; color:#fff;
 				cursor: pointer;
 				transition: 0.4s ease-in;
 				border:solid 2px #fff;
