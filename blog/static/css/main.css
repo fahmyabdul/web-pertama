@@ -17,7 +17,7 @@
 
 			@-webkit-keyframes dropEffect{
 				0%{
-					-webkit-transform: translateY(-80%);
+					-webkit-transform: translateY(-100%);
 				}
 				100%{
 					-webkit-transform: translateY(0%);
@@ -35,7 +35,7 @@
 
 			@keyframes dropEffect{
 				0%{
-					transform: translateY(-80%);
+					transform: translateY(-100%);
 				}
 				100%{
 					transform: translateY(0%);
@@ -60,6 +60,9 @@
 			.navbar-default .navbar-brand{
         		color:#0e83cd;
 			}
+			.navbar-default .navbar-brand:hover{
+				color:#0e83cd;
+			}
 			.headtop{
 				background-color: #F8F8F8;
 				padding-top: 10px;
@@ -83,7 +86,7 @@
 			.headicon{
 				font-size:24px; color:#0e83cd;
 			}
-			.headicon .img-circle{
+			.imgicn{
         		-webkit-filter:opacity(100%);
         		-moz-filter:opacity(100%); 
         		filter:opacity(100%);
@@ -92,7 +95,7 @@
         		transition: all 0.2s linear;
 
 			}
-			.headicon .img-circle:hover{
+			.imgicn:hover{
         		-webkit-filter:opacity(75%);
         		-moz-filter:opacity(75%); 
         		filter:opacity(75%);
@@ -420,6 +423,20 @@
     			z-index: 3;
     			top: 47;
 			}
+			.section-3 .blgpct{
+				background:#fff; border:solid thin #fff; text-align:center; padding:5px;
+			}
+			.section-3 .blgpct::after{
+				top:-8;
+				left:13;
+				display: inline-block;
+				width:6px;
+				height:115%;
+				background-color: #fff;
+				position: absolute;
+				z-index: 1;
+				content:"";
+			}
 			.section-4{
 				border-top: solid 8px #1780a9;
 				background-color:#1ea4d9;
@@ -486,7 +503,7 @@
 				background: #49ab81;
 				border: solid 2px #fff; 
 				position: relative;
-    			content: "-";
+    			content: ".";
     			color: transparent;
     			z-index: 3;
 				-moz-transform: scale(.9999);
@@ -507,4 +524,23 @@
 			}
 			.section-footer{
 				padding:10px; background:#323232; color:#fff; text-align:center; border-top:solid 4px #191919;
+			}
+			.txtblg{
+				font-size:43px; 
+				color: #dc7b72; 
+    			text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+    			position: relative;
+    			z-index: 2;
+			}
+			.txtblg::before{
+				top:-4;
+				left:13;
+				display: inline-block;
+				width:2px;
+				height:55px;
+				background-color: #dc7b72;
+				position: absolute;
+				z-index: -1;
+				content:"";
+				transform: rotate(-60deg);
 			}

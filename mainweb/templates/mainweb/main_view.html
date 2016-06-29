@@ -19,7 +19,7 @@
 	<div class="headtop">
 		<div class="container-fluid">
 			<div class="headicon">
-			Tuan <img src="{% static 'img/flg.png' %}" width="44" height="44" style="background:#d6d6d6;" class="img-circle">
+			Tuan <img src="{% static 'img/flg.png' %}" width="44" height="44" style="background:#d6d6d6;" class="img-circle imgicn">
 			Abdul
 			</div>
 		</div>
@@ -33,7 +33,7 @@
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
 	          </button>
-	          <a class="navbar-brand" href="#"><img src="{% static 'img/flg.png' %}" class="img-circle"> Tuan Abdul</a>
+	          <a class="navbar-brand" href="#"><img src="{% static 'img/flg.png' %}" class="img-circle imgicn"> Tuan Abdul</a>
 	        </div>
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav">
@@ -126,18 +126,20 @@
 			      			<hr class="head-lines">
 			      			<div class="row">
 			      				<div class="col-md-2">
-				      				<div style="background:#fff; border:solid thin #fff; color: #dc7b72; text-align:center; font-size:43px;">
-					      				<span class="hidden-xs">B<br>
-					      				L<br>
-					      				O<br>
-					      				G<br></span>
+				      				<div class="blgpct hidden-xs">
+					      				<span class="txtblg">B</span><br>
+					      				<span class="txtblg">L</span><br>
+					      				<span class="txtblg">O</span><br>
+					      				<span class="txtblg">G</span><br>
 					      				<span class="visible-xs">BLOG</span>
 				      				</div>
 			      				</div>
 			      				<div class="col-md-10">
 				      				<div>
 				      				<p>{{ bagian.bagian_isi|safe|linebreaksbr }}</p>
-		      						<div style="text-align:right;"><button class="btn">Masuk Ke Blog Tuan Abdul</button></div>
+		      						<div style="text-align:right;">
+		      						<a href="/"><button class="btn">Masuk Ke Blog Tuan Abdul</button></a>
+		      						</div>
 		      						</div>
 			      				</div>
 			      			</div>
