@@ -14,8 +14,53 @@
 		<script src="{% static 'js/bootstrap.min.js' %}"></script>
 		<style>
 		</style>
+		<script>
+			$(document).ready(function () {
+				$(document).on("scroll", onScroll);
+		 
+				$('a[href^="#"]').on('click', function (e) {
+					e.preventDefault();
+					$(document).off("scroll");
+		 
+					$('a').parent().each(function () {
+						$(this).removeClass('active');
+					})
+					$(this).parent().addClass('active');
+		 
+					var target = this.hash;
+					$target = $(target);
+					$('html, body').stop().animate({
+						'scrollTop': $target.offset().top+2
+					}, 500, 'swing', function () {
+						window.location.hash = target;
+						$(document).on("scroll", onScroll);
+					});
+				});
+			});
+			function onScroll(event){
+			    var scrollPos = $(document).scrollTop();
+			    $('#navbar ul li').each(function () {
+			        var currLink = $(this);
+			        var refElement = $(currLink.children().attr("href"));
+			        if (refElement.position().top <= scrollPos -540 && refElement.position().top + refElement.height() > scrollPos -545) {
+			            $('#navbar ul li').removeClass("active");
+			            currLink.addClass("active");
+			        }else if (refElement.position().top <= scrollPos -400 && refElement.position().top + refElement.height() > scrollPos -400) {
+			            $('#navbar ul li').removeClass("active");
+			            currLink.addClass("active");
+			        }else if (refElement.position().top == 0){
+			            $('#navbar ul li').removeClass("active");
+			            $('[data-id=profil]').addClass("active");
+			        }
+			        else{
+			            currLink.removeClass("active");
+			        }
+			    });
+			}
+		</script>
 	</head>
 	<body>
+	<div id="profil">
 	<div class="headtop">
 		<div class="container-fluid">
 			<div class="headicon">
@@ -37,7 +82,7 @@
 	        </div>
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav">
-	            <li class="active"><a href="#">Home</a></li>
+	            <li class="active" data-id="profil"><a href="#profil">Profil</a></li>
 	            <li><a href="#about">About</a></li>
 	            <li><a href="#hobby">Hobby</a></li>
 	            <li><a href="#blog">Blog</a></li>
@@ -58,6 +103,7 @@
 		    	<h4>Web Developer in Cimahi, Indonesia</h4>
 		    	<h5 style="color:#666666;">- Keep It Stupid Simple -</h5>
 		    </div>
+	    </div>
 	    </div>
       	<div class="container-fluid con-body">
 	      	<div class="section-1" id="about">
