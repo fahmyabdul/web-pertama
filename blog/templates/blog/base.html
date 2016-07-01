@@ -15,14 +15,14 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="blog-nav">
-          <a class="blog-nav-item active" href="/">Beranda</a>
+          <a class="blog-nav-item active" href="/blog/">Beranda</a>
           <a class="blog-nav-item" href="#">Kategori</a>
           <a class="blog-nav-item" href="#">Hot</a>
           <a class="blog-nav-item" href="#">About</a>
 		  {% if user.is_authenticated %}
 		  <span class="blog-nav-item">Hello, {{ user.username }} ( <a href="{% url 'logout' %}">Log out</a> )</span>
 		  {% else %}
-		  <a href="{% url 'login' %}" class="blog-nav-item"><span class="glyphicon glyphicon-lock"></span></a>
+		  <a href="{% url 'login' %}?next={% firstof request.path '/blog/' %}" class="blog-nav-item"><span class="glyphicon glyphicon-lock"></span></a>
 		  {% endif %}
         </nav>
       </div>

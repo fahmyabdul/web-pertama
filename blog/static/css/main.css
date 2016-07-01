@@ -90,19 +90,35 @@
 			.headicon{
 				font-size:28px; color:#0e83cd;
 			}
+			.headicon div{
+				background: transparent;
+				padding:3px;
+				border-radius: 100%;
+				position: relative;
+        		transition: all 0.4s linear;
+			}
 			.imgicn{
-        		-webkit-filter:opacity(100%);
-        		-moz-filter:opacity(100%); 
-        		filter:opacity(100%);
+				width:44px;
+				height: 44px;
+        		-webkit-filter:grayscale(0%);
+        		-moz-filter:grayscale(0%); 
+        		filter:grayscale(0%);
         		-moz-transition: all 0.2s linear;
         		-webkit-transition: all 0.2s linear;
         		transition: all 0.2s linear;
 
 			}
-			.imgicn:hover{
-        		-webkit-filter:opacity(75%);
-        		-moz-filter:opacity(75%); 
-        		filter:opacity(75%);
+			.headicon div:hover{
+				background: #3e9bd7;
+				padding:3px;
+        		transition: all 0.4s linear;
+    			-moz-transform: rotate(180deg);
+    			-webkit-transform: rotate(180deg);
+			}
+			.headicon div:hover .imgicn{
+        		-webkit-filter:grayscale(80%);
+        		-moz-filter:grayscale(80%); 
+        		filter:grayscale(80%);
         		-moz-transition: all 0.2s linear;
         		-webkit-transition: all 0.2s linear;
         		transition: all 0.2s linear;
@@ -140,6 +156,11 @@
 				letter-spacing: 3px;
 				text-shadow: 0px 0px 8px #000;
 				color:#fff;
+			}
+			.jumbotron::after{
+				background: url("../img/flg.png") no-repeat;
+				position:relative;
+				z-index: 2;
 			}
 			.jumbotron p{
     			font-size: 52px;

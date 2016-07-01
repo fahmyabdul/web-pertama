@@ -14,57 +14,14 @@
 		<script src="{% static 'js/bootstrap.min.js' %}"></script>
 		<style>
 		</style>
-		<script>
-			$(document).ready(function () {
-				$(document).on("scroll", onScroll);
-		 
-				$('a[href^="#"]').on('click', function (e) {
-					e.preventDefault();
-					$(document).off("scroll");
-		 
-					$('a').parent().each(function () {
-						$(this).removeClass('active');
-					})
-					$(this).parent().addClass('active');
-		 
-					var target = this.hash;
-					$target = $(target);
-					$('html, body').stop().animate({
-						'scrollTop': $target.offset().top+2
-					}, 500, 'swing', function () {
-						window.location.hash = target;
-						$(document).on("scroll", onScroll);
-					});
-				});
-			});
-			function onScroll(event){
-			    var scrollPos = $(document).scrollTop();
-			    $('#navbar ul li').each(function () {
-			        var currLink = $(this);
-			        var refElement = $(currLink.children().attr("href"));
-			        if (refElement.position().top <= scrollPos -540 && refElement.position().top + refElement.height() > scrollPos -545) {
-			            $('#navbar ul li').removeClass("active");
-			            currLink.addClass("active");
-			        }else if (refElement.position().top <= scrollPos -400 && refElement.position().top + refElement.height() > scrollPos -400) {
-			            $('#navbar ul li').removeClass("active");
-			            currLink.addClass("active");
-			        }else if (refElement.position().top == 0){
-			            $('#navbar ul li').removeClass("active");
-			            $('[data-id=profil]').addClass("active");
-			        }
-			        else{
-			            currLink.removeClass("active");
-			        }
-			    });
-			}
-		</script>
+		<script src="{% static 'js/main.js' %}"></script>
 	</head>
 	<body>
 	<div id="profil">
 	<div class="headtop">
 		<div class="container-fluid">
 			<div class="headicon">
-			Tuan <img src="{% static 'img/flg.png' %}" width="44" height="44" style="background:#d6d6d6;" class="img-circle imgicn">
+			Tuan <div style="display:inline-block;"><img src="{% static 'img/flg.png' %}"class="img-circle imgicn"></div>
 			Abdul
 			</div>
 		</div>
@@ -184,7 +141,7 @@
 				      				<div>
 				      				<p>{{ bagian.bagian_isi|safe|linebreaksbr }}</p>
 		      						<div style="text-align:right;">
-		      						<a href="/"><button class="btn">Masuk Ke Blog Tuan Abdul</button></a>
+		      						<a href="/blog"><button class="btn">Masuk Ke Blog Tuan Abdul</button></a>
 		      						</div>
 		      						</div>
 			      				</div>
