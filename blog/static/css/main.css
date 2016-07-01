@@ -47,6 +47,7 @@
 			}
 			.navbar-brand {
 				padding: 0px; /* firefox bug fix */
+				padding-top: 1px;
         		margin-right: -120px;
 				display: none;
 			}
@@ -55,7 +56,39 @@
 			 	padding: 5px; /* firefox bug fix */
 			 	width: auto;
 			 	display: none;
+        		-webkit-filter:grayscale(0%);
+        		-moz-filter:grayscale(0%); 
+        		filter:grayscale(0%);
+        		-moz-transition: all 0.2s linear;
+        		-webkit-transition: all 0.2s linear;
+        		transition: all 0.2s linear;
 			}
+			.navbar-brand>div{
+				background: transparent;
+				padding:3px;
+				border-radius: 100%;
+				position: relative;
+        		transition: all 0.4s linear;
+				display: inline-block;
+			}
+
+			.navbar-brand>div:hover{
+				background: #3e9bd7;
+				padding:3px;
+        		transition: all 0.4s linear;
+    			-moz-transform: rotate(180deg);
+    			-webkit-transform: rotate(180deg);
+			}
+
+			.navbar-brand>div:hover img{
+        		-webkit-filter:grayscale(80%);
+        		-moz-filter:grayscale(80%); 
+        		filter:grayscale(80%);
+        		-moz-transition: all 0.2s linear;
+        		-webkit-transition: all 0.2s linear;
+        		transition: all 0.2s linear;
+        	}
+
 			.navbar-default{
 				border-left: none;
 				border-right: none;
@@ -65,12 +98,12 @@
         		color:#0e83cd;
 			}
 			.navbar-default .navbar-brand:hover{
-				color:#0e83cd;
+        		color:#0e83cd;
 			}
 			.headtop{
 				background-color: #F8F8F8;
-				padding-top: 10px;
-				padding-bottom: 10px;
+				padding-top: 6px;
+				padding-bottom: 6px;
 				text-align: center;
 				-moz-animation-name:HeaderColoring;
 			    -moz-animation-iteration-count: 1;
