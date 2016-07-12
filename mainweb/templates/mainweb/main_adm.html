@@ -1,36 +1,50 @@
-{% extends 'mainweb/base.html' %}
 {% load staticfiles %}
-{% block sidebar %}
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Main Management
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Shortcuts</a>
-                </li>
-                <li>
-                    <a href="#">Overview</a>
-                </li>
-                <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-{% endblock %}
-{% block pgcontent %}
-		                <div class="row">
-		                    <div class="col-lg-12">
-		                        <h1>Main Sidebar</h1>
-		                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-		                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-		                    </div>
-		                </div>
-{% endblock %}
+<html>
+	<head>
+		<title>Tuan Abdul | Admin</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+		<link rel="stylesheet" href="{% static 'css/main.css' %}">
+		<link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+		<link rel="shortcut icon" href="{%  static 'img/flg.png' %}">
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<script>
+			$(window).load(function() {
+				$(".loader").fadeOut('slow');
+			});
+		</script>
+		<style>
+			body{
+				height: 100%;
+				background: #242a31;
+			}
+		</style>
+	</head>
+<body>
+	<div class="loader"></div>
+	<div class="container">
+		<div style="margin:0 auto; top:30px; margin-bottom:30px; position:relative;">
+			  <div style="background: #343d46; color:#c2c4c7; box-shadow:0px 0px 13px rgba(0,0,0,0.8); margin:0 auto; margin-top:20px; width:350px; max-width:80%; padding:10px;">
+			  	<div style="padding:20px; padding-bottom:30px;">
+					<div class="someicon">
+						<div style="display:inline-block;"><img src="{% static 'img/flg.png' %}" class="img-circle imgicn"></div>
+					</div>
+				</div>
+			  	<div style="">
+			  		<div style="padding:14px;"><input type="text" name="username" placeholder="Username" style="width:100%; padding:10px; border:none; border-bottom:solid 1px #c2c4c7; background:transparent; letter-spacing:2px;"></div>
+			  		<div style="padding:14px;"><input type="password" name="password" placeholder="Password" style="width:100%; padding:10px; border:none; border-bottom:solid 1px #c2c4c7; background:transparent; letter-spacing:2px;"></div>
+			  		<div style="padding:14px;"><button style="width:100%; padding:12px; background:#0e83cd; color:#fff; border:none; border-radius:5px; font-size:18px;">Masuk</button></div>
+			  		<div style="padding:14px; padding-top: 5px; text-align:center;"><span class="glyphicon glyphicon-lock"></span> Lupa Password ?</div>
+			  	</div>
+			  	<div style="padding:14px; padding-top:30px; padding-bottom:14px;">
+			  		<div>Copyright @Tuan Abdul 2016</div>
+			  	</div>
+			  </div>
+		</div>
+	</div>
+</body>
+</html>

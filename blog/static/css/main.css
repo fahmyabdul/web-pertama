@@ -156,6 +156,41 @@
         		-webkit-transition: all 0.2s linear;
         		transition: all 0.2s linear;
         	}
+			.someicon{
+				font-size:30px; color:#0e83cd;
+				text-align:center;
+			}
+			.someicon .imgicn{
+				width:100px;
+				height: 100px;
+			}
+			.someicon div{
+				background: transparent;
+				border-radius: 100%;
+				position: relative;
+				animation-name:icneff;
+				animation-iteration-count: infinite;
+				animation-duration: 1.5s;
+			}
+
+			@keyframes icneff{
+				0%  {box-shadow:0 0 0 0 #0079ff}
+				100%{box-shadow:0 0 0 15px rgba(255,150,44,0)}
+			}
+			.someicon div .imgicn{
+        		-moz-transition: all 0.4s linear;
+        		-webkit-transition: all 0.4s linear;
+        		transition: all 0.4s linear;
+        	}
+			.someicon div:hover .imgicn{
+        		-webkit-filter:grayscale(80%);
+        		-moz-filter:grayscale(80%); 
+        		filter:grayscale(80%);
+        		-moz-transition: all 0.4s linear;
+        		-webkit-transition: all 0.4s linear;
+        		transition: all 0.4s linear;
+        		transform: rotate(180deg);
+        	}
 			.navbar{
 				margin-bottom:0px;
 				z-index: 100;
