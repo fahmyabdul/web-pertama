@@ -10,8 +10,16 @@
 		<link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
 		<link rel="stylesheet" href="{% static 'css/blog.css' %}">
 		<link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script>
+			$(window).load(function() {
+				$(".loader").fadeOut("slow");
+			});
+		</script>
     </head>
     <body>
+	<div class="loader"></div>
     <div class="blog-masthead">
       <div class="container">
         <nav class="blog-nav">
@@ -71,7 +79,5 @@
 	        <a href="#">Back to top</a>
 	      </p>
 	    </footer>
-		<script src="{% static 'js/bootstrap.min.js' %}"></script>
-		<script src="{% static 'js/jquery.min.js' %}"></script>
 	</body>
 </html>

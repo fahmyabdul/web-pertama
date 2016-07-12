@@ -1,0 +1,102 @@
+{% load staticfiles %}
+<html>
+	<head>
+		<title>Tuan Abdul | Admin</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+		<link rel="stylesheet" href="{% static 'css/main.css' %}">
+		<link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+		<link rel="shortcut icon" href="{%  static 'img/flg.png' %}">
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<style>
+			.navbar{
+			}
+			.navbar-brand {
+				display: block;
+				padding-left: 5px;
+			}
+			.btntgl{
+				background: #0e83cd;
+				color: #fff;
+				width: 0;
+				padding: 10px;
+				padding-right:25px;
+				text-align: center;
+				font-size:16px;
+				margin-left: 0px;
+				position: absolute;
+				z-index: 99999;
+				transition: linear 0.2s;
+			}
+			.btntgl:hover{
+				background: #56a8dc;
+				transition: linear 0.2s;
+			}
+		</style>
+		<script>
+			$(window).load(function() {
+				$(".loader").fadeOut('slow');
+			});
+		</script>
+	</head>
+	<body>
+	<div id="profil">
+		<nav class="navbar navbar-default" data-spy="affix" data-offset-top="67">
+	      <div class="container-fluid">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <div class="navbar-brand" href="#"><div><img src="{% static 'img/flg.png' %}" class="img-circle imgicn"></div> Tuan Abdul</div>
+	        </div>
+	        <div id="navbar" class="navbar-collapse collapse">
+	          <ul class="nav navbar-nav navbar-right">
+	            <li class="{% if request.resolver_match.url_name == 'adm_blog' %}active{% endif %}"><a href="/adm/blog">Blog Management</a></li>
+	            <li class="{% if request.resolver_match.url_name == 'adm_profil' %}active{% endif %}"><a href="/adm/profil">Profil Management</a></li>
+	            <li><a href="#">Logout</a></li>
+	          </ul>
+	        </div>
+	      </div>
+    	</nav>
+		 <div id="wrapper">
+
+		        <!-- Sidebar -->
+		        <div id="sidebar-wrapper">
+		            <ul class="sidebar-nav">
+		            	{% block sidebar %}
+		                {% endblock %}
+		            </ul>
+		        </div>
+		        <!-- /#sidebar-wrapper -->
+
+		        <!-- Page Content -->
+		        <div id="page-content-wrapper">
+				<div class="loader"></div>
+		            <div class="container-fluid">
+				      	<div class="blgpct visible-xs">
+	                    <a href="#" class="menu-toggle">
+	                        <span class="glyphicon glyphicon-menu-hamburger"></span> Menu
+	                    </a>
+	                    </div>
+						{% block pgcontent %}
+						{% endblock %}
+		            </div>
+		        </div>
+		        <!-- /#page-content-wrapper -->
+
+		    </div>
+	    <script>
+	    $('.menu-toggle').click(function(e){
+	        e.preventDefault();
+	        $("#wrapper").toggleClass("toggled");
+		});
+	    </script>
+	</body>
+</html>

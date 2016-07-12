@@ -1,0 +1,36 @@
+{% extends 'mainweb/base.html' %}
+{% load staticfiles %}
+{% block sidebar %}
+                <li>
+                    <a href="#" class="menu-toggle">
+                        <span class="glyphicon glyphicon-menu-hamburger"></span> Menu
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="active"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a>
+                </li>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-record"></span> Overview</a>
+                </li>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-option-horizontal"></span> Events</a>
+                </li>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-dashboard"></span> About</a>
+                </li>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-dashboard"></span> Services</a>
+                </li>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-dashboard"></span> Contact</a>
+                </li>
+{% endblock %}
+{% block pgcontent %}
+		                <div class="row">
+		                    <div class="col-lg-12">
+		                        <h1>Blog Sidebar</h1>
+		                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
+		                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+		                    </div>
+		                </div>
+{% endblock %}
