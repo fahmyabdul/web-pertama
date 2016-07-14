@@ -23,18 +23,18 @@
 }
 
 #sidebar-wrapper {
-    z-index: 9999;
     position: fixed;
     left: 220px;
     width: 0;
     height: 100%;
     margin-left: -220px;
     overflow-y: auto;
-    background: #268fd2;
+    background: #31383f;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
+    box-shadow:0px 0px 13px rgba(0,0,0,0.8); 
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -62,13 +62,11 @@
     padding: 0;
     list-style: none;
 }
-
 .sidebar-nav li {
     text-indent: 20px;
     line-height: 40px;
     font-size: 15px;
 }
-
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
@@ -77,19 +75,22 @@
 .sidebar-nav li a span{
     display: inline;
     top:3px;
-    margin-right: 10px;
+    margin-right: 12px;
     transition: 0.2s linear;
+}
+.sidebar-nav li a span.images{
+    margin-left:-14px;
 }
 .sidebar-nav li a.active{
     text-decoration: none;
     color: #fff;
-    background: #095b8f;
+    background: #262c31;
 }
 
 .sidebar-nav li a:hover {
     text-decoration: none;
     color: #fff;
-    background: rgba(255,255,255,0.2);
+    background: #262c31;
 }
 
 .sidebar-nav li a:active,
@@ -118,7 +119,7 @@
     }
 
     #wrapper.toggled {
-        padding-left: 42px;
+        padding-left: 47px;
     }
 
     #wrapper.toggled .btntgl{
@@ -130,7 +131,7 @@
     }
 
     #wrapper.toggled #sidebar-wrapper {
-        width: 42px;
+        width: 47px;
     }
     
     #wrapper.toggled .sidebar-nav > .sidebar-brand {
@@ -141,8 +142,24 @@
     #wrapper.toggled .sidebar-nav li a span{
         display: inline;
         top:3px;
-        margin-left: -7px;
-        margin-right: 10px;
+        margin-left: -4px;
+        margin-right: 12px;
+        transition: 0.2s linear;
+    }
+
+    #wrapper.toggled .sidebar-nav li a span.images{
+        display: inline;
+        top:3px;
+        margin-left: -19px;
+        margin-right: 2px;
+        transition: 0.2s linear;
+    }
+
+    #wrapper.toggled #sidebar-wrapper .mnubottom a{
+        display: inline;
+        top:3px;
+        margin-left: -4px;
+        margin-right: 12px;
         transition: 0.2s linear;
     }
 

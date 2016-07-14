@@ -8,35 +8,11 @@
 		<link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
 		<link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
 		<link rel="stylesheet" href="{% static 'css/main.css' %}">
+		<link rel="stylesheet" href="{% static 'css/adm.css' %}">
 		<link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
 		<link rel="shortcut icon" href="{%  static 'img/flg.png' %}">
 		<script src="{% static 'js/jquery.min.js' %}"></script>
 		<script src="{% static 'js/bootstrap.min.js' %}"></script>
-		<style>
-			.navbar{
-			}
-			.navbar-brand {
-				display: block;
-				padding-left: 5px;
-			}
-			.btntgl{
-				background: #0e83cd;
-				color: #fff;
-				width: 0;
-				padding: 10px;
-				padding-right:25px;
-				text-align: center;
-				font-size:16px;
-				margin-left: 0px;
-				position: absolute;
-				z-index: 99999;
-				transition: linear 0.2s;
-			}
-			.btntgl:hover{
-				background: #56a8dc;
-				transition: linear 0.2s;
-			}
-		</style>
 		<script>
 			$(window).load(function() {
 				$(".loader").fadeOut('slow');
@@ -73,11 +49,14 @@
 
 		        <!-- Sidebar -->
 		        <div id="sidebar-wrapper">
-		            <ul class="sidebar-nav">
-	                <li>
-	                    <a href="#" class="menu-toggle" data-toggle="tooltip" data-placement="right" title="Menu">
+		            <ul class="sidebar-nav" style="height:100%;">
+	                <li class="mnu-btn">
+	                    <a href="#" class="menu-toggle">
 	                        <span class="glyphicon glyphicon-menu-hamburger"></span> Menu
 	                    </a>
+	                </li>
+	                <li class="mnu-btn">
+	                	<a href="#" style="padding:5px; padding-top:3px;"><span class="images"><img src="{% static 'img/cat.jpg' %}" style="width:35px; height:35px;" class="img-circle"></span> M.Fahmy A.H</a>
 	                </li>
 		            	{% block sidebar %}
 		                {% endblock %}
@@ -89,7 +68,7 @@
 		        <div id="page-content-wrapper">
 				<div class="loader"></div>
 		            <div class="container-fluid">
-				      	<div class="blgpct visible-xs">
+				      	<div class="blgpct visible-xs" style="margin-bottom:5px;">
 	                    <a href="#" class="menu-toggle">
 	                        <span class="glyphicon glyphicon-menu-hamburger"></span> Menu
 	                    </a>
