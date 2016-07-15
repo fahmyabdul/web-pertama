@@ -17,6 +17,19 @@ body{
 	animation-duration: 1.5s;
 }
 
+.profimg{
+	border:solid 2px #fff;
+    transition: all 1.5s linear;
+}
+
+.profimg:hover{
+	animation-name: imgrotate;
+	animation-iteration-count: 1;
+	animation-duration: 1.5s;
+}
+.mnu-btn a{
+	padding-top:4px;
+}
 .navbar-brand>div:hover{
 	background: transparent;
 	padding:3px;
@@ -26,8 +39,13 @@ body{
 }
 
 @keyframes imgeff{
-	0%{ box-shadow:0 0 0 0 #0079ff }
+	0%{ box-shadow:0 0 0 0 #0079ff; }
 	100%{ box-shadow:0 0 0 7px rgba(255,150,44,0); }
+}
+
+@keyframes imgrotate{
+	0%{ transform: rotate(0deg); }
+	100%{ transform: rotate(360deg); }
 }
 .navbar-default .navbar-nav > .active > a{
 	color:#fff;

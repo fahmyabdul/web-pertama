@@ -12,6 +12,7 @@
 
 #wrapper {
     padding-left: 0;
+    margin-top: 50px;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -72,19 +73,41 @@
     text-decoration: none;
     color: #fff;
 }
+
+.sidebar-nav li a.profilbar {
+    padding:8px; text-align: center; background:#1e2327;
+    padding-bottom:0px;
+}
+
+.sidebar-nav li a.profilbar:hover {
+    background:#1e2327;
+}
+
 .sidebar-nav li a span{
     display: inline;
     top:3px;
     margin-right: 12px;
     transition: 0.2s linear;
 }
+
+.sidebar-nav li a span.nama{
+    display: inline;
+    top:3px;
+    margin-right: 0px;
+    transition: 0.2s linear;
+}
 .sidebar-nav li a span.images{
     margin-left:-14px;
+}
+.sidebar-nav li a span.images img.profimg{
+    width:65px; height:65px;
+    transition: 0.2s linear;
 }
 .sidebar-nav li a.active{
     text-decoration: none;
     color: #fff;
     background: #262c31;
+    border-right: solid 2px #0e83cd;
 }
 
 .sidebar-nav li a:hover {
@@ -134,24 +157,54 @@
         width: 47px;
     }
     
+    #wrapper.toggled .sidebar-nav{
+        width: 47px;
+        transition: 0.5s linear;
+    }
+
     #wrapper.toggled .sidebar-nav > .sidebar-brand {
         visibility: hidden;
         transition: 0.2s linear;
     }
 
+    #wrapper.toggled .sidebar-nav li a {
+        padding-top:12px;
+        padding-bottom:14px;
+    }
+
     #wrapper.toggled .sidebar-nav li a span{
+        display: none;
+    }
+    #wrapper.toggled .sidebar-nav li a span.glyphicon{
         display: inline;
         top:3px;
         margin-left: -4px;
         margin-right: 12px;
         transition: 0.2s linear;
     }
+    
+    #wrapper.toggled .sidebar-nav li a.profilbar {
+        padding-bottom: 8px;
+        transition: 0.2s linear;
+    }
 
     #wrapper.toggled .sidebar-nav li a span.images{
         display: inline;
         top:3px;
-        margin-left: -19px;
+        margin-left: -22px;
         margin-right: 2px;
+        transition: margin 0.2s linear;
+    }
+
+    #wrapper.toggled .sidebar-nav li a span.nama{
+        display: none;
+    }
+
+    #wrapper.toggled .sidebar-nav li a span.images img{
+        display: inline;
+        top:3px;
+        width:35px;
+        height: 35px;
         transition: 0.2s linear;
     }
 
