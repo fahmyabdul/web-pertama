@@ -2,22 +2,22 @@
 {% load staticfiles %}
 {% block sidebar %}
                 <li>
-                    <a href="#" class="active"><span class="glyphicon glyphicon-dashboard"></span> <span>Postingan</span></a>
+                    <a href="/adm/blog" class="{% if request.path == '/adm/blog/' %}active{% endif %}"><span class="glyphicon glyphicon-dashboard"></span> <span>Postingan</span></a>
                 </li>
                 <li>
-                    <a href="#"><span class="glyphicon glyphicon-th-list"></span> <span>Kategori</span></a>
+                    <a href="#" class="{% if request.path == '/adm/blog/kategori/' %}active{% endif %}"><span class="glyphicon glyphicon-th-list"></span> <span>Kategori</span></a>
                 </li>
                 <li>
-                    <a href="#"><span class="glyphicon glyphicon-comment"></span> <span>Komentar</span></a>
+                    <a href="#" class="{% if request.path == '/adm/blog/komentar/' %}active{% endif %}"><span class="glyphicon glyphicon-comment"></span> <span>Komentar</span></a>
                 </li>
                 <li>
-                    <a href="#"><span class="glyphicon glyphicon-user"></span> <span>User</span></a>
+                    <a href="user" class="{% if request.path == '/adm/blog/user/' %}active{% endif %}"><span class="glyphicon glyphicon-user"></span> <span>User</span></a>
                 </li>
                 <li>
-                    <a href="#"><span class="glyphicon glyphicon-star"></span> <span>Administrator</span></a>
+                    <a href="#" class="{% if request.path == '/adm/blog/administrator/' %}active{% endif %}"><span class="glyphicon glyphicon-star"></span> <span>Administrator</span></a>
                 </li>
                 <li>
-                    <a href="#"><span class="glyphicon glyphicon-cog"></span> <span>Settings</span></a>
+                    <a href="#" class="{% if request.path == '/adm/blog/settings/' %}active{% endif %}"><span class="glyphicon glyphicon-cog"></span> <span>Settings</span></a>
                 </li>
 {% endblock %}
 {% block pgcontent %}

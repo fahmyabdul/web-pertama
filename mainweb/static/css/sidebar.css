@@ -81,6 +81,7 @@
 
 .sidebar-nav li a.profilbar:hover {
     background:#1e2327;
+    border-right: none;
 }
 
 .sidebar-nav li a span{
@@ -114,6 +115,7 @@
     text-decoration: none;
     color: #fff;
     background: #262c31;
+    border-right: solid 1px #0e83cd;
 }
 
 .sidebar-nav li a:active,

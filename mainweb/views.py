@@ -15,3 +15,6 @@ def adm_profil(request):
 
 def adm_blog(request):
 	return render(request, 'mainweb/adm_blog.html')
+
+def adm_blog_user(request):
+	return render(request, 'mainweb/adm_blog_user.html')
