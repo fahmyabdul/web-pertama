@@ -139,11 +139,15 @@
         		-moz-transition: all 0.2s linear;
         		-webkit-transition: all 0.2s linear;
         		transition: all 0.2s linear;
-
+        		animation-name: imgeff;
+        		animation-iteration-count: infinite;
+        		animation-duration: 1.5s;
+			}
+			@keyframes imgeff{
+				0%{ box-shadow:0 0 0 0 #0079ff; }
+				100%{ box-shadow:0 0 0 7px rgba(255,150,44,0); }
 			}
 			.headicon div:hover{
-				background: #3e9bd7;
-				padding:3px;
         		transition: all 0.4s linear;
     			-moz-transform: rotate(180deg);
     			-webkit-transform: rotate(180deg);
