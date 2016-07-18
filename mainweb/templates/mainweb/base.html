@@ -17,6 +17,19 @@
 		<script>
 		</script>
 		<style>
+		.nav-tabs li a{
+			color: #fff;
+			border-radius: 0px;
+		}
+		.nav-tabs li a:hover{
+			color: #0e83cd;
+		}
+		.nav-tabs li a:active{
+			color: #0e83cd;
+		}
+		.nav-tabs li a:focus{
+			color: #0e83cd;
+		}
 		</style>
 	</head>
 	<body>
@@ -65,6 +78,7 @@
 		        <!-- /#sidebar-wrapper -->
 
 		        <!-- Page Content -->
+		        <div style="padding:12px; padding-top:14px; padding-bottom: 10px; background:#101315;"><span class="glyphicon glyphicon-home"></span>&nbsp;{{ alamats }}</div>
 		        {% block pgtitle %}
 		        {% endblock %}
 		        <div id="page-content-wrapper">

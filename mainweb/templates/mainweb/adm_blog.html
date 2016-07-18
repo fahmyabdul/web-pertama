@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% block sidebar %}
                 <li>
-                    <a href="/adm/blog" class="{% if request.path == '/adm/blog/' %}active{% endif %}"><span class="glyphicon glyphicon-dashboard"></span> <span>Postingan</span></a>
+                    <a href="/adm/blog" class="{% if request.path == '/adm/blog/' %}active{% endif %}"><span class="glyphicon glyphicon-file"></span> <span>Postingan</span></a>
                 </li>
                 <li>
                     <a href="#" class="{% if request.path == '/adm/blog/kategori/' %}active{% endif %}"><span class="glyphicon glyphicon-th-list"></span> <span>Kategori</span></a>
@@ -22,20 +22,25 @@
 {% endblock %}
 {% block pgtitle %}
 
-				<div style="background:#181c1f; padding:20px;">
+				<div style="background:#181c1f; padding:20px; padding-top:8px;">
 				{% if request.path == '/adm/blog/' %}
-				<h3 style="color:#0e83cd;"><span class="glyphicon glyphicon-dashboard"></span> Postingan</h3>
+				<h2 style="text-shadow:0px 0px 5px #3e9bd7;"><span class="glyphicon glyphicon-file"></span> Postingan</h2>
 				<span style="color:#c2c4c7;">Hallo {{ user.username }}, ini adalah bagian management postingan blog anda!</span>
 				{% elif request.path == '/adm/blog/kategori/' %}
-				<span class="glyphicon glyphicon-th-list"></span> Bagian Kategori
+				<h2 style="text-shadow:0px 0px 5px #3e9bd7;"><span class="glyphicon glyphicon-th-list"></span> Kategori</h2>
+				<span style="color:#c2c4c7;">Hallo {{ user.username }}, ini adalah bagian management kategori postingan blog anda!</span>
 				{% elif request.path == '/adm/blog/komentar/' %}
-				<span class="glyphicon glyphicon-comment"></span> Bagian Komentar
+				<h2 style="text-shadow:0px 0px 5px #3e9bd7;"><span class="glyphicon glyphicon-comment"></span> Komentar</h2>
+				<span style="color:#c2c4c7;">Hallo {{ user.username }}, ini adalah bagian management komentar postingan blog anda!</span>
 				{% elif request.path == '/adm/blog/user/' %}
-				<span class="glyphicon glyphicon-user"></span> Bagian User
+				<h2 style="text-shadow:0px 0px 5px #3e9bd7;"><span class="glyphicon glyphicon-user"></span> User</h2>
+				<span style="color:#c2c4c7;">Hallo {{ user.username }}, ini adalah bagian management user blog anda!</span>
 				{% elif request.path == '/adm/blog/administrator/' %}
-				<span class="glyphicon glyphicon-star"></span> Bagian Administrator
+				<h2 style="text-shadow:0px 0px 5px #3e9bd7;"><span class="glyphicon glyphicon-star"></span> Administrator</h2>
+				<span style="color:#c2c4c7;">Hallo {{ user.username }}, ini adalah bagian management administrator blog anda!</span>
 				{% elif request.path == '/adm/blog/settings/' %}
-				<span class="glyphicon glyphicon-cog"></span> Settings
+				<h2 style="text-shadow:0px 0px 5px #3e9bd7;"><span class="glyphicon glyphicon-cog"></span> Settings</h2>
+				<span style="color:#c2c4c7;">Hallo {{ user.username }}, ini adalah bagian management settingan blog anda!</span>
 				{% endif %}
 				</div>
 {% endblock %}
@@ -44,15 +49,15 @@
 		                    	<div class="col-lg-12">
 			                    <div class="box-shdw" style="padding:10px; padding-left:15px; padding-right:15px; background: #343d46; margin-bottom:12px;">
 			                    	<h3>Manage Postingan</h3>
-			                    	<ul class="nav nav-pills" style="margin-top:13px;">
+			                    	<ul class="nav nav-tabs" style="margin-top:13px;">
 				                    	<li class="active"><a href="#">All Posts</a></li>
 				                    	<li><a href="#">Published</a></li>
 				                    	<li><a href="#">Draft</a></li>
 			                    	</ul>
-			                    	<div style="margin:8px; margin-top:16px;"><span class="glyphicon glyphicon-edit"></span>&nbsp;Post Baru&nbsp;&nbsp; <span class="glyphicon glyphicon-remove"></span>&nbsp;Hapus Post</div>
 			                    	<div style=" overflow:auto;">
-			                    	<table class="table" style="font-size:13px; text-align:center; border-left:solid 2px #0e83cd;">
-			                    		<thead><tr><td>No.</td><td>Tanggal</td><td>Judul</td><td>Pengarang</td><td>Kategori</td><td><span class="glyphicon glyphicon-comment"></span></td><td>Status</td><td>Opsi</td></tr></thead>
+			                    	<div style="margin:8px; margin-top:16px;"><span class="glyphicon glyphicon-edit"></span>&nbsp;Post Baru&nbsp;&nbsp; <span class="glyphicon glyphicon-remove"></span>&nbsp;Hapus Post</div>
+			                    	<table class="table" style="font-size:14px; text-align:center; margin-bottom:0;">
+			                    		<thead style="background:#1e2327;"><tr><td>No.</td><td>Tanggal</td><td>Judul</td><td>Pengarang</td><td>Kategori</td><td><span class="glyphicon glyphicon-comment"></span></td><td>Status</td><td>Opsi</td></tr></thead>
 			                    		<tbody>
 			                    			{% for post in posts %}
 			                    			<tr>
@@ -77,6 +82,7 @@
 			                    			{% endfor %}
 			                    		</tbody>
 			                    	</table>
+			                    	<div>Total : {{ totposts }} Baris | Published : {{ totpub }} | Unpublished : {{ totunpub }} </div>
 			                    	</div>
 			                    </div>
 			                    </div>

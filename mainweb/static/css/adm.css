@@ -1,7 +1,10 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto:300';
+
 body{
 	height: 100%;
 	background: #242a31;
 	color:#fff;
+	font-family:'Roboto', sans-serif;
 }
 .navbar{
 	background: #343d46; 

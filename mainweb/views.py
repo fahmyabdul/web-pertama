@@ -19,20 +19,32 @@ def login_adm(request):
 
 def adm_profil(request):
     if request.user.is_authenticated():
-		return render(request, 'mainweb/adm_profil.html')
+        alamat = request.path
+        alamat = alamat.replace("/"," > ")
+        alamats = alamat.replace(">", " ", 1)[:-2]
+        return render(request, 'mainweb/adm_profil.html', {'alamats':alamats})
     else:
         return login_adm(request)
 
 def adm_blog(request):
     if request.user.is_authenticated():
-        posts = blog.models.Post.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
-        users = User.objects.all()
-        return render(request, 'mainweb/adm_blog.html', {'posts' : posts,'users' :users })
+        alamat   = request.path
+        alamat   = alamat.replace("/"," > ")
+        alamats  = alamat.replace(">", " ", 1)[:-2]
+        posts    = blog.models.Post.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
+        totposts = posts.count()
+        totpub   = blog.models.Post.objects.filter(published_date__isnull=False).count()
+        totunpub = blog.models.Post.objects.filter(published_date__isnull=True).count()
+        users    = User.objects.all()
+        return render(request, 'mainweb/adm_blog.html', {'posts' : posts, 'totposts': totposts, 'users' :users,'alamats':alamats })
     else:
         return login_adm(request)
 
 def adm_blog_user(request):
     if request.user.is_authenticated():
-		return render(request, 'mainweb/adm_blog_user.html')
+        alamat = request.path
+        alamat = alamat.replace("/"," > ")
+        alamats = alamat.replace(">", " ", 1)[:-2]
+        return render(request, 'mainweb/adm_blog_user.html',{'alamats':alamats})
     else:
         return login_adm(request)
