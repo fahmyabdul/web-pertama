@@ -42,7 +42,7 @@
 	          <ul class="nav navbar-nav navbar-right">
 	            <li class="{% if request.resolver_match.url_name == 'adm_blog' %}active{% endif %}"><a href="/adm/blog">Blog Management</a></li>
 	            <li class="{% if request.resolver_match.url_name == 'adm_profil' %}active{% endif %}"><a href="/adm/profil">Profil Management</a></li>
-	            <li><a href="#">Logout</a></li>
+	            <li><a href="{% url 'logout_adm' %}">Logout</a></li>
 	          </ul>
 	        </div>
 	      </div>
@@ -50,7 +50,7 @@
 		 <div id="wrapper">
 
 		        <!-- Sidebar -->
-		        <div id="sidebar-wrapper"  style="z-index:2;">
+		        <div id="sidebar-wrapper">
 		            <ul class="sidebar-nav" style="height:100%;">
 	                <li class="mnu-btn">
 	                    <a href="#" class="menu-toggle">
@@ -71,7 +71,7 @@
 
 		        <!-- Page Content -->
 		        <div id="page-content-wrapper">
-				<div class="loader" style="z-index:1;"></div>
+				<div class="loader"></div>
 		            <div class="container-fluid">
 				      	<div class="blgpct visible-xs" style="margin-bottom:5px;">
 	                    <a href="#" class="menu-toggle" style="color:#fff;">

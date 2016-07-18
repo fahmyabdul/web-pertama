@@ -1,4 +1,5 @@
 from django.conf.urls import include, url
+import django.contrib.auth.views
 from . import views
 
 urlpatterns = [
@@ -12,4 +13,6 @@ urlpatterns = [
     url(r'^post/(?P<pk>\d+)/comment/$', views.add_comment_to_post, name='add_comment_to_post'),
     url(r'^comment/(?P<pk>\d+)/approve/$', views.comment_approve, name='comment_approve'),
 	url(r'^comment/(?P<pk>\d+)/remove/$', views.comment_remove, name='comment_remove'),
+    url(r'^accounts/login/$', django.contrib.auth.views.login, {'template_name': 'blog/login.html'}, name='login'),
+    url(r'^accounts/logout/$', django.contrib.auth.views.logout, name='logout', kwargs={'next_page': '/blog/'}),
 ]
