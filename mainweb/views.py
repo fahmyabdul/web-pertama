@@ -1,8 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import login
+from django.contrib.auth.models import User
+from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 from .models import Bagian
+import blog
 
 def main_view(request):
 	bagians = Bagian.objects.all()
@@ -22,7 +25,9 @@ def adm_profil(request):
 
 def adm_blog(request):
     if request.user.is_authenticated():
-		return render(request, 'mainweb/adm_blog.html')
+        posts = blog.models.Post.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
+        users = User.objects.all()
+        return render(request, 'mainweb/adm_blog.html', {'posts' : posts,'users' :users })
     else:
         return login_adm(request)
 

@@ -21,17 +21,53 @@
                 </li>
 {% endblock %}
 {% block pgcontent %}
-		                <div class="row">
-		                    <div class="col-lg-9">
 		                		<div class="row">
-		                    	<div class="col-lg-6">
+		                    	<div class="col-lg-12">
+			                    <div class="box-shdw" style="padding:10px; padding-left:15px; padding-right:15px; background: #343d46; margin-bottom:12px;">
+			                    	<h2>Manage Posts</h2>
+			                    	<table class="table" style="font-size:13px; text-align:center;">
+			                    		<thead style="background:#1e2327;"><tr><td>No.</td><td>Tanggal</td><td>Judul</td><td>Pengarang</td><td>Kategori</td><td><span class="glyphicon glyphicon-comment"></span></td><td>Status</td><td>Opsi</td></tr></thead>
+			                    		<tbody>
+			                    			{% for post in posts %}
+			                    			<tr>
+			                    			<td>{{ forloop.counter }}.</td>
+			                    			<td>{{ post.created_date }}</td>
+			                    			<td>{{ post.title }}</td>
+			                    			<td>{% for user in users %}{% if post.author_id == user.id %} {{ user.username }} {% endif %} {% endfor %}</td>
+			                    			<td></td>
+			                    			<td><span class="glyphicon glyphicon-comment"></span></td>
+			                    			<td>{% if post.published_date %} <span style="color:#aaff77;">Published</span> {% else %} <span style="color:#ff6f6f;">Unpublished</span> {% endif %}</td>
+			                    			<td>&nbsp;&nbsp;
+			                    			{% if post.published_date %}
+			                    			<span class="glyphicon glyphicon-remove"></span>
+			                    			{% else %}
+			                    			<span class="glyphicon glyphicon-ok"></span>
+			                    			{% endif %}
+			                    			&nbsp;&nbsp;|&nbsp;&nbsp;
+			                    			<span class="glyphicon glyphicon-pencil"></span>
+			                    			&nbsp;&nbsp;|&nbsp;&nbsp;
+			                    			<span class="glyphicon glyphicon-trash"></span></td>
+			                    			</tr>
+			                    			{% endfor %}
+			                    		</tbody>
+			                    	</table>
+			                    </div>
+			                    </div>
+		                    	<div class="col-lg-12">
+			                    <div class="box-shdw" style="padding:10px; padding-left:15px; padding-right:15px; background: #343d46; margin-bottom:12px;">
+			                    	<h2>Blog</h2>
+			                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
+			                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+			                    </div>
+			                    </div>
+		                    	<div class="col-lg-4">
 				                    <div class="box-shdw" style="padding:10px; padding-left:15px; padding-right:15px; background: #343d46; margin-bottom:12px;">
 				                    	<h2>Blog</h2>
 				                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
 				                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
 				                    </div>
 				                </div>
-		                    	<div class="col-lg-6">
+		                    	<div class="col-lg-4">
 				                    <div class="box-shdw" style="padding:10px; padding-left:15px; padding-right:15px; background: #343d46; margin-bottom:12px;">
 				                    	<h2>Blog</h2>
 				                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
@@ -39,23 +75,4 @@
 				                    </div>
 				                </div>
 			                    </div>
-			                    <div class="box-shdw" style="padding:10px; padding-left:15px; padding-right:15px; background: #343d46; margin-bottom:12px;">
-			                    	<h2>Blog</h2>
-			                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-			                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-			                    </div>
-			                    <div class="box-shdw" style="padding:10px; padding-left:15px; padding-right:15px; background: #343d46; margin-bottom:12px;">
-			                    	<h2>Blog</h2>
-			                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-			                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-			                    </div>
-		                    </div>
-		                    <div class="col-lg-3">
-			                    <div class="box-shdw" style="padding:10px; padding-left:15px; padding-right:15px; background: #343d46; margin-bottom:12px;">
-			                    	<h2>Blog</h2>
-			                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-			                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-			                    </div>
-		                    </div>
-		                </div>
 {% endblock %}

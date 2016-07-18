@@ -13,19 +13,14 @@
 		<link rel="shortcut icon" href="{%  static 'img/flg.png' %}">
 		<script src="{% static 'js/jquery.min.js' %}"></script>
 		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'js/main.js' %}"></script>
 		<script>
-			$(window).load(function() {
-				$(".loader").fadeOut('slow');
-			});
-			
-			$(document).ready(function(){
-			    $('[data-toggle="tooltip"]').tooltip(); 
-			});
 		</script>
 		<style>
 		</style>
 	</head>
 	<body>
+	<div class="loader"></div>
 	<div id="profil">
 		<nav class="navbar navbar-default navbar-fixed-top">
 	      <div class="container-fluid">
@@ -71,7 +66,6 @@
 
 		        <!-- Page Content -->
 		        <div id="page-content-wrapper">
-				<div class="loader"></div>
 		            <div class="container-fluid">
 				      	<div class="blgpct visible-xs" style="margin-bottom:5px;">
 	                    <a href="#" class="menu-toggle" style="color:#fff;">

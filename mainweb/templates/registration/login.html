@@ -1,4 +1,5 @@
 {% load staticfiles %}
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Tuan Abdul Admin | Login</title>
@@ -13,21 +14,19 @@
 		<link rel="shortcut icon" href="{%  static 'img/flg.png' %}">
 		<script src="{% static 'js/jquery.min.js' %}"></script>
 		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'js/main.js' %}"></script>
 		<script>
-			$(window).load(function() {
-				$(".loader").fadeOut('slow');
-			});
 		</script>
 		<style>
 		</style>
 	</head>
 <body>
 	<div class="loader"></div>
+	{% if form.errors %}
+	<div class="err">Username atau password anda salah!</div>
+	{% endif %}
 	<div class="container">
 		<div class="main">
-			  	{% if form.errors %}
-			  	<p style="text-align:center;">Username atau password anda salah!</p>
-			  	{% endif %}
 			  <div class="kotaklogin">
 			  	<div class="kepala">
 					<div class="someicon">
@@ -41,13 +40,13 @@
 			  		<div class="inputbx">
 			  			<div class="input-group">
 							<span class="input-group-addon" id="sizing-addon2" style="border-radius:0px;"><span class="glyphicon glyphicon-user"></span></span>
-							<input type="text" name="username" class="form-control" placeholder="Username anda ..." aria-describedby="sizing-addon2">
+							<input type="text" name="username" class="form-control" placeholder="Username anda ..." aria-describedby="sizing-addon2" required>
 						</div>
 					</div>
 			  		<div class="inputbx">
 			  			<div class="input-group">
 							<span class="input-group-addon" id="sizing-addon2" style="border-radius:0px"><span class="glyphicon glyphicon-lock"></span></span>
-							<input type="password" name="password" class="form-control" placeholder="Password anda ..." aria-describedby="sizing-addon2">
+							<input type="password" name="password" class="form-control" placeholder="Password anda ..." aria-describedby="sizing-addon2" required>
 						</div>
 					</div>
 			  		<div class="inputbx"><input type="submit" value="Masuk" class="tombol"></div>
