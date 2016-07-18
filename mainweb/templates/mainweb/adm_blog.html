@@ -20,13 +20,39 @@
                     <a href="#" class="{% if request.path == '/adm/blog/settings/' %}active{% endif %}"><span class="glyphicon glyphicon-cog"></span> <span>Settings</span></a>
                 </li>
 {% endblock %}
+{% block pgtitle %}
+
+				<div style="background:#181c1f; padding:20px;">
+				{% if request.path == '/adm/blog/' %}
+				<h3 style="color:#0e83cd;"><span class="glyphicon glyphicon-dashboard"></span> Postingan</h3>
+				<span style="color:#c2c4c7;">Hallo {{ user.username }}, ini adalah bagian management postingan blog anda!</span>
+				{% elif request.path == '/adm/blog/kategori/' %}
+				<span class="glyphicon glyphicon-th-list"></span> Bagian Kategori
+				{% elif request.path == '/adm/blog/komentar/' %}
+				<span class="glyphicon glyphicon-comment"></span> Bagian Komentar
+				{% elif request.path == '/adm/blog/user/' %}
+				<span class="glyphicon glyphicon-user"></span> Bagian User
+				{% elif request.path == '/adm/blog/administrator/' %}
+				<span class="glyphicon glyphicon-star"></span> Bagian Administrator
+				{% elif request.path == '/adm/blog/settings/' %}
+				<span class="glyphicon glyphicon-cog"></span> Settings
+				{% endif %}
+				</div>
+{% endblock %}
 {% block pgcontent %}
 		                		<div class="row">
 		                    	<div class="col-lg-12">
 			                    <div class="box-shdw" style="padding:10px; padding-left:15px; padding-right:15px; background: #343d46; margin-bottom:12px;">
-			                    	<h2>Manage Posts</h2>
-			                    	<table class="table" style="font-size:13px; text-align:center;">
-			                    		<thead style="background:#1e2327;"><tr><td>No.</td><td>Tanggal</td><td>Judul</td><td>Pengarang</td><td>Kategori</td><td><span class="glyphicon glyphicon-comment"></span></td><td>Status</td><td>Opsi</td></tr></thead>
+			                    	<h3>Manage Postingan</h3>
+			                    	<ul class="nav nav-pills" style="margin-top:13px;">
+				                    	<li class="active"><a href="#">All Posts</a></li>
+				                    	<li><a href="#">Published</a></li>
+				                    	<li><a href="#">Draft</a></li>
+			                    	</ul>
+			                    	<div style="margin:8px; margin-top:16px;"><span class="glyphicon glyphicon-edit"></span>&nbsp;Post Baru&nbsp;&nbsp; <span class="glyphicon glyphicon-remove"></span>&nbsp;Hapus Post</div>
+			                    	<div style=" overflow:auto;">
+			                    	<table class="table" style="font-size:13px; text-align:center; border-left:solid 2px #0e83cd;">
+			                    		<thead><tr><td>No.</td><td>Tanggal</td><td>Judul</td><td>Pengarang</td><td>Kategori</td><td><span class="glyphicon glyphicon-comment"></span></td><td>Status</td><td>Opsi</td></tr></thead>
 			                    		<tbody>
 			                    			{% for post in posts %}
 			                    			<tr>
@@ -51,6 +77,7 @@
 			                    			{% endfor %}
 			                    		</tbody>
 			                    	</table>
+			                    	</div>
 			                    </div>
 			                    </div>
 		                    	<div class="col-lg-12">

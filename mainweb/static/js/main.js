@@ -5,7 +5,6 @@ $(document).ready(function () {
 	$(".err").click(function() {
 		$(this).fadeOut('slow');
 	});
-	$("body").css('overflow-y','auto');
 	$(document).on("scroll", onScroll);
 		 
 	$('a[href^="#"]').on('click', function (e) {
