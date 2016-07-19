@@ -131,65 +131,84 @@ body{
 	cursor:pointer;
 }
 		
-.nav-pills > li > a {
+.posting .nav-pills > li > a {
   padding: 7px 12px;
   margin-right: 2px;
   transition: all 0.2s linear;
+  border-radius: 0px;
 }
-.nav-pills{
+.posting .nav-pills{
 	margin-bottom:10px
 }
-.nav-pills ul{
+.posting .nav-pills ul{
 	background: #0e83cd;
   	transition: all 0.2s linear;
 }
-.nav-pills li a{
+.posting .nav-pills li a{
 	color: #343d46;
 	background: #fcfcfc;
   	transition: all 0.2s linear;
 }
-.nav-pills li.active > a{
+.posting .nav-pills li.active > a{
 	color: #fcfcfc;
 	background: #0e83cd;
-  	transition: all 0.2s linear;
-}
-.nav-pills li.active > a.published{
-	color: #fcfcfc;
-	background:#7ab755;
-  	transition: all 0.2s linear;
-}
-.nav-pills li.active > a.unpublished{
-	color: #fcfcfc;
-	background:#cc5858;
   	transition: all 0.2s linear;
 }
 
-.nav-pills li a.published:hover{
+.posting .nav-pills li > a.allpost{
+	color: #fcfcfc;
+	background:#0e83cd;
+	border:solid thin #0e83cd;
+  	transition: all 0.2s linear;
+}
+
+.posting .nav-pills li > a.published{
 	color: #fcfcfc;
 	background:#7ab755;
+	border:solid thin #7ab755;
   	transition: all 0.2s linear;
 }
-.nav-pills li a.unpublished:hover{
+.posting .nav-pills li > a.unpublished{
 	color: #fcfcfc;
 	background:#cc5858;
+	border:solid thin #cc5858;
   	transition: all 0.2s linear;
 }
-.nav-pills li a:hover{
-	background: #0e83cd;
+
+.posting .nav-pills li.active > a.allpost{
 	color: #fcfcfc;
-	border-color:#0e83cd;
+	border:solid thin #0c75b8;
+	background:#095b8f;
   	transition: all 0.2s linear;
 }
-.nav-pills li a:active{
-	background: #0e83cd;
+
+.posting .nav-pills li.active > a.published{
 	color: #fcfcfc;
-	border-color:#0e83cd;
+	border:solid thin #7ab755;
+	background:#55803b;
   	transition: all 0.2s linear;
 }
-.nav-pills li a:focus{
-	background: #0e83cd;
+.posting .nav-pills li.active > a.unpublished{
 	color: #fcfcfc;
-	border-color:#0e83cd;
+	border:solid thin #cc5858;
+	background:#803737;
+  	transition: all 0.2s linear;
+}
+
+.posting .nav-pills li a.allpost:hover{
+	color: #fcfcfc;
+	background:#0c75b8;
+  	transition: all 0.2s linear;
+}
+
+.posting .nav-pills li a.published:hover{
+	color: #fcfcfc;
+	background:#6da44c;
+  	transition: all 0.2s linear;
+}
+.posting .nav-pills li a.unpublished:hover{
+	color: #fcfcfc;
+	background:#b74f4f;
   	transition: all 0.2s linear;
 }
 .posting{
@@ -275,10 +294,15 @@ body{
 
 .posting .opsi{
 	cursor: pointer;
-	animation-name: imgeff;
+}
+.posting .opsi:hover{
+	animation-name: txteff;
+	animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+	animation-duration: 1.5s;
 }
 .posting .opsi.merah{
-	color:#ff6f6f
+	color:#ff6f6f;
 }
 .posting .opsi.hijau{
 	color:#aaff77;
@@ -289,24 +313,42 @@ body{
 .posting .opsi.ungu{
 	color:#b493a5;
 }
+
+@keyframes txteff{
+	0%{ text-shadow:0px 0px 0px #ffffff; }
+	100%{ text-shadow:0px 0px 25px rgba(255,150,44,0); }
+}
+
 .stat{
 	 padding:0; margin-bottom:12px;
 }
 .stat.biru{
 	background: #0e83cd;
+	border-right: solid 4px #0b68a4;
 }
 .stat.hijau{
-	background: rgba(122,183,85,1);
+	background: #7AB755;
+	border-right: solid 4px #619244;
 }
 .stat.merah{
-	background:rgba(204,88,88,1);
+	background: #CC5858;
+	border-right: solid 4px #a34646;
 }
 .stat.hijaumd{
 	background: #6fcb9f;
+	border-right: solid 4px #58a27f;
 }
 .stat.birumd{
 	background: #6eb4e1;
+	border-right: solid 4px #5890b4;
 }
 .stat.merahmd{
 	background: #d67979;
+	border-right: solid 4px #ab6060;
+}
+.stat > div{
+	display:inline-block; height:100px; width:100%; text-align: center; color:#fff;
+}
+.stat > div > h1{
+	line-height: 35px;
 }

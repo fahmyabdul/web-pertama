@@ -45,121 +45,121 @@
 				</div>
 {% endblock %}
 {% block pgcontent %}
-		                		<div class="row">
-		                    	<div class="col-lg-12">
-			                    <h3>Statistik Postingan</h3>
-			                		<div class="row">
-				                    	<div class="col-lg-2">
-						                    <div class="box-shdw stat biru">
-						                    	<div style="display:inline-block; background:#0e83cd; height:100px; width:100%; text-align: center; color:#fff;">
-						                    	<h1 style="line-height: 35px;">{{ totposts }}</h1>
-						                    	<span>Postingan</span></div>
-						                    </div>
-						                </div>
-				                    	<div class="col-lg-2">
-						                    <div class="box-shdw hijau">
-						                    	<div style="display:inline-block; background:rgba(122,183,85,1); height:100px; width:100%; text-align: center; color:#fff;">
-						                    	<h1 style="line-height: 35px;">{{ totpubs }}</h1>
-						                    	<span>Published</span></div>
-						                    </div>
-						                </div>
-				                    	<div class="col-lg-2">
-						                    <div class="box-shdw stat merah">
-						                    	<div style="display:inline-block; background:rgba(204,88,88,1); height:100px; width:100%; text-align: center; color:#fff;">
-						                    	<h1 style="line-height: 35px;">{{ totunpubs }}</h1>
-						                    	<span>Unpublished</span></div>
-						                    </div>
-						                </div>
-				                    	<div class="col-lg-2">
-						                    <div class="box-shdw stat hijaumd">
-						                    	<div style="display:inline-block; background:#6fcb9f; height:100px; width:100%; text-align: center; color:#fff;">
-						                    	<h1 style="line-height: 35px;">0</h1>
-						                    	<span>Komentar</span></div>
-						                    </div>
-						                </div>
-				                    	<div class="col-lg-2">
-						                    <div class="box-shdw stat birumd">
-						                    	<div style="display:inline-block; background:#6eb4e1; height:100px; width:100%; text-align: center; color:#fff;">
-						                    	<h1 style="line-height: 35px;">0</h1>
-						                    	<span>Suka</span></div>
-						                    </div>
-						                </div>
-				                    	
-				                    	<div class="col-lg-2">
-						                    <div class="box-shdw stat merahmd">
-						                    	<div style="display:inline-block; background:#d67979; height:100px; width:100%; text-align: center; color:#fff;">
-						                    	<h1 style="line-height: 35px;">0</h1>
-						                    	<span>Favorite</span></div>
-						                    </div>
-						                </div>
-						            </div>
-				                </div>
-		                    	<div class="col-lg-12">
-			                    <h3>Manage Postingan</h3>
-			                    <div class="box-shdw posting">
-			                    	<div class="container-fluid header">
-				                    	<ul class="nav nav-pills">
-					                    	<li class="active"><a href="#"><span class="glyphicon glyphicon-list-alt"></span> All Posts</a></li>
-					                    	<li><a href="#" class="published"><span class="glyphicon glyphicon-eye-open"></span> Published</a></li>
-					                    	<li><a href="#" class="unpublished"><span class="glyphicon glyphicon-eye-close"></span> Unpublished</a></li>
-					                    	<li class="pull-right"><a href="#">&nbsp;-&nbsp; </a></li>
-					                    	<li class="pull-right"><a href="#" style="margin-left:2px; font-weight:bold;">&nbsp;+&nbsp;</a></li>
-					                    	<li class="pull-right"><input type="text" class="form-control" placeholder="Search"></li>
-				                    	</ul>
-			                    	</div>
-			                    	<div class="table-responsive">
-			                    	<table class="table" style="margin-bottom:10px;">
-			                    		<thead style="">
-			                    			<tr>
-			                    				<td>No</td>
-			                    				<td>Tanggal Pembuatan</td>
-			                    				<td>Judul</td>
-			                    				<td><span class="glyphicon glyphicon-user" data-toggle="tooltip" title="Pengarang"></span></td>
-			                    				<td>Kategori</td>
-			                    				<td><span class="glyphicon glyphicon-comment" data-toggle="tooltip" style="color:#6fcb9f;" title="Komentar"></span></td>
-			                    				<td><span class="glyphicon glyphicon-thumbs-up" data-toggle="tooltip" style="color:#6eb4e1;" title="Suka"></span></td>
-			                    				<td><span class="glyphicon glyphicon-heart" data-toggle="tooltip" style="color:#d67979;" title="Favorite"></span></td>
-			                    				<td>Status</td>
-			                    				<td>Opsi</td>
-			                    			</tr>
-			                    		</thead>
-			                    		<tbody>
-			                    			{% for post in posts %}
-			                    			<tr class="{% if post.published_date %}published{% else %}unpublished{% endif %}">
-				                    			<td>{{ forloop.counter }}</td>
-				                    			<td>{{ post.created_date }}</td>
-				                    			<td>{{ post.title }}</td>
-				                    			<td>{% for user in users %}{% if post.author_id == user.id %} {{ user.username }} {% endif %} {% endfor %}</td>
-				                    			<td></td>
-				                    			<td><span class="glyphicon glyphicon-comment"></span></td>
-				                    			<td></td>
-				                    			<td></td>
-				                    			<td>{% if post.published_date %} <span style="color:#aaff77;" data-toggle="tooltip" title="{{ post.published_date }}">Published</span> {% else %} <span data-toggle="tooltip" title="Belum Dipublikasi" style="color:#ff6f6f;">Unpublished</span> {% endif %}</td>
-				                    			<td>
-				                    			{% if post.published_date %}
-				                    			<span class="glyphicon glyphicon-remove opsi merah" data-toggle="tooltip" title="Unpublish"></span>
-				                    			{% else %}
-				                    			<span class="glyphicon glyphicon-ok opsi hijau" data-toggle="tooltip" title="Publish"></span>
-				                    			{% endif %}
-				                    			&nbsp;&nbsp;&nbsp;
-				                    			<span class="glyphicon glyphicon-pencil opsi kuning" data-toggle="tooltip" title="Edit"></span>
-				                    			&nbsp;&nbsp;&nbsp;
-				                    			<span class="glyphicon glyphicon-trash opsi ungu" data-toggle="tooltip" title="Hapus"></span></td>
-			                    			</tr>
-			                    			{% endfor %}
-			                    		</tbody>
-			                    	</table>
-			                    	</div>
-			                    	<div class="container-fluid footer">
-				                    	<div>Total Post :&nbsp;
-					                    	<span class="num biru">{{ totposts }}</span>
-					                    	&nbsp;&nbsp;Published :&nbsp;
-					                    	<span class="num hijau">{{ totpubs }}</span>
-					                    	&nbsp;&nbsp;Unpublished :&nbsp;
-					                    	<span class="num merah">{{ totunpubs }}</span>
-				                    	</div>
-			                    	</div>
-			                    </div>
-			                    </div>
-			                    </div>
+	<div class="row">
+	<div class="col-lg-12">
+	<h3>Statistik Postingan</h3>
+		<div class="row">
+	    	<div class="col-md-2">
+	            <div class="box-shdw stat biru">
+	            	<div>
+	            	<h1>{{ totposts }}</h1>
+	            	<span>Postingan</span></div>
+	            </div>
+	        </div>
+	    	<div class="col-md-2">
+	            <div class="box-shdw stat hijau">
+	            	<div>
+	            	<h1>{{ totpubs }}</h1>
+	            	<span>Published</span></div>
+	            </div>
+	        </div>
+	    	<div class="col-md-2">
+	            <div class="box-shdw stat merah">
+	            	<div>
+	            	<h1>{{ totunpubs }}</h1>
+	            	<span>Unpublished</span></div>
+	            </div>
+	        </div>
+	    	<div class="col-md-2">
+	            <div class="box-shdw stat hijaumd">
+	            	<div>
+	            	<h1>0</h1>
+	            	<span>Komentar</span></div>
+	            </div>
+	        </div>
+	    	<div class="col-md-2">
+	            <div class="box-shdw stat birumd">
+	            	<div>
+	            	<h1>0</h1>
+	            	<span>Suka</span></div>
+	            </div>
+	        </div>
+	    	
+	    	<div class="col-md-2">
+	            <div class="box-shdw stat merahmd">
+	            	<div>
+	            	<h1>0</h1>
+	            	<span>Favorite</span></div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<div class="col-lg-12">
+	<h3>Manage Postingan</h3>
+	<div class="box-shdw posting">
+		<div class="container-fluid header">
+	    	<ul class="nav nav-pills">
+	        	<li class="active"><a href="#" class="allpost"><span class="glyphicon glyphicon-list-alt"></span> All Posts</a></li>
+	        	<li><a href="#" class="published"><span class="glyphicon glyphicon-eye-open"></span> Published</a></li>
+	        	<li><a href="#" class="unpublished"><span class="glyphicon glyphicon-eye-close"></span> Unpublished</a></li>
+	        	<li class="pull-right"><a href="#">&nbsp;-&nbsp; </a></li>
+	        	<li class="pull-right"><a href="#" style="margin-left:2px; font-weight:bold;">&nbsp;+&nbsp;</a></li>
+	        	<li class="pull-right"><input type="text" class="form-control" placeholder="Search"></li>
+	    	</ul>
+		</div>
+		<div class="table-responsive">
+		<table class="table" style="margin-bottom:10px;">
+			<thead style="">
+				<tr>
+					<td>No</td>
+					<td>Tanggal Pembuatan</td>
+					<td>Judul</td>
+					<td><span class="glyphicon glyphicon-user" data-toggle="tooltip" title="Pengarang"></span></td>
+					<td>Kategori</td>
+					<td><span class="glyphicon glyphicon-comment" data-toggle="tooltip" style="color:#6fcb9f;" title="Komentar"></span></td>
+					<td><span class="glyphicon glyphicon-thumbs-up" data-toggle="tooltip" style="color:#6eb4e1;" title="Suka"></span></td>
+					<td><span class="glyphicon glyphicon-heart" data-toggle="tooltip" style="color:#d67979;" title="Favorite"></span></td>
+					<td>Status</td>
+					<td>Opsi</td>
+				</tr>
+			</thead>
+			<tbody>
+				{% for post in posts %}
+				<tr class="{% if post.published_date %}published{% else %}unpublished{% endif %}">
+	    			<td>{{ forloop.counter }}</td>
+	    			<td>{{ post.created_date }}</td>
+	    			<td>{{ post.title }}</td>
+	    			<td>{% for user in users %}{% if post.author_id == user.id %} {{ user.username }} {% endif %} {% endfor %}</td>
+	    			<td></td>
+	    			<td><span class="glyphicon glyphicon-comment"></span></td>
+	    			<td></td>
+	    			<td></td>
+	    			<td>{% if post.published_date %} <span style="color:#aaff77;" data-toggle="tooltip" title="{{ post.published_date }}">Published</span> {% else %} <span data-toggle="tooltip" title="Belum Dipublikasi" style="color:#ff6f6f;">Unpublished</span> {% endif %}</td>
+	    			<td>
+	    			{% if post.published_date %}
+	    			<span class="glyphicon glyphicon-remove opsi merah" data-toggle="tooltip" title="Unpublish"></span>
+	    			{% else %}
+	    			<span class="glyphicon glyphicon-ok opsi hijau" data-toggle="tooltip" title="Publish"></span>
+	    			{% endif %}
+	    			&nbsp;&nbsp;&nbsp;
+	    			<span class="glyphicon glyphicon-pencil opsi kuning" data-toggle="tooltip" title="Edit"></span>
+	    			&nbsp;&nbsp;&nbsp;
+	    			<span class="glyphicon glyphicon-trash opsi ungu" data-toggle="tooltip" title="Hapus"></span></td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		</div>
+		<div class="container-fluid footer">
+	    	<div>Total Post :&nbsp;
+	        	<span class="num biru">{{ totposts }}</span>
+	        	&nbsp;&nbsp;Published :&nbsp;
+	        	<span class="num hijau">{{ totpubs }}</span>
+	        	&nbsp;&nbsp;Unpublished :&nbsp;
+	        	<span class="num merah">{{ totunpubs }}</span>
+	    	</div>
+		</div>
+	</div>
+	</div>
+	</div>
 {% endblock %}
