@@ -33,10 +33,12 @@ def adm_blog(request):
         alamats  = alamat.replace(">", " ", 1)[:-2]
         posts    = blog.models.Post.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
         totposts = posts.count()
-        totpub   = blog.models.Post.objects.filter(published_date__isnull=False).count()
-        totunpub = blog.models.Post.objects.filter(published_date__isnull=True).count()
+        totpubs   = blog.models.Post.objects.filter(published_date__isnull=False).count()
+        totunpubs = blog.models.Post.objects.filter(published_date__isnull=True).count()
         users    = User.objects.all()
-        return render(request, 'mainweb/adm_blog.html', {'posts' : posts, 'totposts': totposts, 'users' :users,'alamats':alamats })
+        return render(request, 'mainweb/adm_blog.html', 
+        {'posts' : posts, 'totposts': totposts, 'totpubs' : totpubs,
+        'totunpubs' : totunpubs, 'users' :users,'alamats':alamats })
     else:
         return login_adm(request)
 

@@ -7,4 +7,5 @@ $(document).ready(function () {
 		$(this).fadeOut('slow');
 	});
 	$("body").css('overflow-y','auto');
+    $('[data-toggle="tooltip"]').tooltip(); 
 });
