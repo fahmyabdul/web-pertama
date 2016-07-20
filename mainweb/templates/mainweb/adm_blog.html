@@ -22,24 +22,24 @@
 {% endblock %}
 {% block pgtitle %}
 
-				<div style="background:#181c1f; padding:20px; padding-top:8px;">
+				<div class="bagheader">
 				{% if request.path == '/adm/blog/' %}
-				<h2 style="text-shadow:0px 0px 5px #3e9bd7;"><span class="glyphicon glyphicon-file"></span> Postingan</h2>
+				<h2><span class="glyphicon glyphicon-file"></span> Postingan</h2>
 				<span style="color:#c2c4c7;">Hallo {{ user.username }}, ini adalah bagian management postingan blog anda!</span>
 				{% elif request.path == '/adm/blog/kategori/' %}
-				<h2 style="text-shadow:0px 0px 5px #3e9bd7;"><span class="glyphicon glyphicon-th-list"></span> Kategori</h2>
+				<h2><span class="glyphicon glyphicon-th-list"></span> Kategori</h2>
 				<span style="color:#c2c4c7;">Hallo {{ user.username }}, ini adalah bagian management kategori postingan blog anda!</span>
 				{% elif request.path == '/adm/blog/komentar/' %}
-				<h2 style="text-shadow:0px 0px 5px #3e9bd7;"><span class="glyphicon glyphicon-comment"></span> Komentar</h2>
+				<h2><span class="glyphicon glyphicon-comment"></span> Komentar</h2>
 				<span style="color:#c2c4c7;">Hallo {{ user.username }}, ini adalah bagian management komentar postingan blog anda!</span>
 				{% elif request.path == '/adm/blog/user/' %}
-				<h2 style="text-shadow:0px 0px 5px #3e9bd7;"><span class="glyphicon glyphicon-user"></span> User</h2>
+				<h2><span class="glyphicon glyphicon-user"></span> User</h2>
 				<span style="color:#c2c4c7;">Hallo {{ user.username }}, ini adalah bagian management user blog anda!</span>
 				{% elif request.path == '/adm/blog/administrator/' %}
 				<h2 style="text-shadow:0px 0px 5px #3e9bd7;"><span class="glyphicon glyphicon-star"></span> Administrator</h2>
 				<span style="color:#c2c4c7;">Hallo {{ user.username }}, ini adalah bagian management administrator blog anda!</span>
 				{% elif request.path == '/adm/blog/settings/' %}
-				<h2 style="text-shadow:0px 0px 5px #3e9bd7;"><span class="glyphicon glyphicon-cog"></span> Settings</h2>
+				<h2><span class="glyphicon glyphicon-cog"></span> Settings</h2>
 				<span style="color:#c2c4c7;">Hallo {{ user.username }}, ini adalah bagian management settingan blog anda!</span>
 				{% endif %}
 				</div>
@@ -102,13 +102,13 @@
 	        	<li class="active"><a href="#" class="allpost"><span class="glyphicon glyphicon-list-alt"></span> All Posts</a></li>
 	        	<li><a href="#" class="published"><span class="glyphicon glyphicon-eye-open"></span> Published</a></li>
 	        	<li><a href="#" class="unpublished"><span class="glyphicon glyphicon-eye-close"></span> Unpublished</a></li>
-	        	<li class="pull-right"><a href="#">&nbsp;-&nbsp; </a></li>
-	        	<li class="pull-right"><a href="#" style="margin-left:2px; font-weight:bold;">&nbsp;+&nbsp;</a></li>
-	        	<li class="pull-right"><input type="text" class="form-control" placeholder="Search"></li>
+	        	<li><a href="#">&nbsp;-&nbsp; </a></li>
+	        	<li><a href="#" style="margin-left:2px; font-weight:bold;">&nbsp;+&nbsp;</a></li>
+	        	<li><input type="text" class="form-control" placeholder="Search"></li>
 	    	</ul>
 		</div>
 		<div class="table-responsive">
-		<table class="table" style="margin-bottom:10px;">
+		<table class="table" style="margin-bottom:0px;">
 			<thead style="">
 				<tr>
 					<td>No</td>
@@ -116,9 +116,12 @@
 					<td>Judul</td>
 					<td><span class="glyphicon glyphicon-user" data-toggle="tooltip" title="Pengarang"></span></td>
 					<td>Kategori</td>
-					<td><span class="glyphicon glyphicon-comment" data-toggle="tooltip" style="color:#6fcb9f;" title="Komentar"></span></td>
-					<td><span class="glyphicon glyphicon-thumbs-up" data-toggle="tooltip" style="color:#6eb4e1;" title="Suka"></span></td>
-					<td><span class="glyphicon glyphicon-heart" data-toggle="tooltip" style="color:#d67979;" title="Favorite"></span></td>
+					<td><span class="glyphicon glyphicon-comment" data-toggle="tooltip" style="color:#6fcb9f;" title="Komentar"></span>
+					</td>
+					<td><span class="glyphicon glyphicon-thumbs-up" data-toggle="tooltip" style="color:#6eb4e1;" title="Suka"></span>
+					</td>
+					<td><span class="glyphicon glyphicon-heart" data-toggle="tooltip" style="color:#d67979;" title="Favorite"></span>
+					</td>
 					<td>Status</td>
 					<td>Opsi</td>
 				</tr>
@@ -126,7 +129,7 @@
 			<tbody>
 				{% for post in posts %}
 				<tr class="{% if post.published_date %}published{% else %}unpublished{% endif %}">
-	    			<td>{{ forloop.counter }}</td>
+	    			<td>{{ forloop.counter0|add:posts.start_index }}</td>
 	    			<td>{{ post.created_date }}</td>
 	    			<td>{{ post.title }}</td>
 	    			<td>{% for user in users %}{% if post.author_id == user.id %} {{ user.username }} {% endif %} {% endfor %}</td>
@@ -149,6 +152,20 @@
 				{% endfor %}
 			</tbody>
 		</table>
+		<div>
+		<ul class="pagination">
+				<li class="disabled"><a>Page {{ posts.number }} of {{ posts.paginator.num_pages }}</a></li>
+		    {% for x in posts.paginator.page_range %}
+		    	<li class="{% if posts.number = x %}active{% endif %}"><a href="?page={{ x }}">{{ x }}</a></li>
+		  	{% endfor %}
+		    {% if posts.has_previous %}
+		        <li><a href="?page={{ posts.previous_page_number }}">previous</a></li>
+		    {% endif %}
+	        {% if posts.has_next %}
+	            <li><a href="?page={{ posts.next_page_number }}">next</a></li>
+	        {% endif %}
+		</ul>
+		</div>
 		</div>
 		<div class="container-fluid footer">
 	    	<div>Total Post :&nbsp;

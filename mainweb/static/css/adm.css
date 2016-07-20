@@ -130,6 +130,14 @@ body{
 .err:hover{
 	cursor:pointer;
 }
+
+.bagheader{
+	background:#181c1f; padding:20px; padding-top:8px;
+}
+
+.bagheader > h2{
+	text-shadow:0px 0px 5px #3e9bd7;
+}
 		
 .posting .nav-pills > li > a {
   padding: 7px 12px;
@@ -149,6 +157,13 @@ body{
 	background: #fcfcfc;
   	transition: all 0.2s linear;
 }
+
+.posting .nav-pills li a:hover{
+	color: #fcfcfc;
+	background: #0e83cd;
+  	transition: all 0.2s linear;
+}
+
 .posting .nav-pills li.active > a{
 	color: #fcfcfc;
 	background: #0e83cd;
@@ -324,31 +339,75 @@ body{
 }
 .stat.biru{
 	background: #0e83cd;
-	border-right: solid 4px #0b68a4;
+	border-right: dotted 4px #0b68a4;
 }
 .stat.hijau{
 	background: #7AB755;
-	border-right: solid 4px #619244;
+	border-right: dotted 4px #619244;
 }
 .stat.merah{
 	background: #CC5858;
-	border-right: solid 4px #a34646;
+	border-right: dotted 4px #a34646;
 }
 .stat.hijaumd{
 	background: #6fcb9f;
-	border-right: solid 4px #58a27f;
+	border-right: dotted 4px #58a27f;
 }
 .stat.birumd{
 	background: #6eb4e1;
-	border-right: solid 4px #5890b4;
+	border-right: dotted 4px #5890b4;
 }
 .stat.merahmd{
 	background: #d67979;
-	border-right: solid 4px #ab6060;
+	border-right: dotted 4px #ab6060;
 }
 .stat > div{
 	display:inline-block; height:100px; width:100%; text-align: center; color:#fff;
 }
 .stat > div > h1{
 	line-height: 35px;
+}
+
+.pagination{
+	margin-top:0;
+}
+.pagination > li.active > a{
+	background:rgba(204,88,88,0.7);
+	border:solid thin rgba(255,255,255,0.1);
+}
+.pagination > li.active:hover > a{
+	background:rgba(204,88,88,0.7);
+	border:solid thin rgba(255,255,255,0.1);
+}
+.pagination > li > a{
+	background:rgba(14,131,205,0.7);
+	color: #fff;
+	border:solid thin rgba(255,255,255,0.1);
+  	transition: all 0.2s linear;
+}
+.pagination > li:hover > a{
+	background:rgba(14,131,205,0.4);
+	color: #fff;
+	border:solid thin rgba(255,255,255,0.1);
+  	transition: all 0.2s linear;
+}
+.pagination > li:first-child > a, .pagination > li:first-child > span{
+	background:rgba(0,0,0,0.1);
+	border-radius: 0px;
+	border:solid thin rgba(255,255,255,0.1);
+}
+
+.pagination > li:last-child > a, .pagination > li:last-child > span{
+	border-radius: 0px;
+}
+
+.pagination > li.disabled > a{
+	background:rgba(122,183,85,0.7);
+	color:#fff;
+	border:solid thin rgba(255,255,255,0.1);
+}
+.pagination > li.disabled:hover > a{
+	background:rgba(122,183,85,0.7);
+	color:#fff;
+	border:solid thin rgba(255,255,255,0.1);
 }
