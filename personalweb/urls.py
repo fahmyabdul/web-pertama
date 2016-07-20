@@ -5,7 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^blackwalletofadmin/', admin.site.urls),
     url(r'',include('mainweb.urls')),
     url(r'^blog/',include('blog.urls')),
 ]

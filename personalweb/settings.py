@@ -31,14 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.admindocs',
     'mainweb',
     'blog',
+    'django.contrib.admin',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -126,4 +127,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-LOGIN_REDIRECT_URL = '/adm/blog'
+LOGIN_REDIRECT_URL = '/adm/'

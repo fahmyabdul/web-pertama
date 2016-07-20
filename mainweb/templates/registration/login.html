@@ -25,6 +25,9 @@
 	{% if form.errors %}
 	<div class="err">Username atau password anda salah!</div>
 	{% endif %}
+	{% if stat == "bukanadmin" %}
+	<div class="err">Anda Bukan Administrator!</div>
+	{% endif %}
 	<div class="container">
 		<div class="main">
 			  <div class="kotaklogin">

@@ -1,10 +1,11 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import login
+from django.contrib.auth.views import login,logout
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 from .models import Bagian
 import blog
 
@@ -14,9 +15,19 @@ def main_view(request):
 
 def login_adm(request):
     if request.user.is_authenticated():
-        return redirect('/adm/blog')
+        if request.user.is_staff:
+            return redirect('/adm/blog')
+        else:
+            stat = 'bukanadmin'
+            logout(request)
+            return render(request, 'registration/login.html', {'stat':stat})
     else:
         return login(request)
+
+def logout_adm(request):
+    logout(request)
+    return redirect('/adm/')
+
 
 def adm_profil(request):
     if request.user.is_authenticated():

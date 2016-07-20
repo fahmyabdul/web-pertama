@@ -8,5 +8,5 @@ urlpatterns = [
 	url(r'^adm/profil/$', views.adm_profil, name='adm_profil'),
 	url(r'^adm/blog/$', views.adm_blog, name='adm_blog'),
 	url(r'^adm/blog/user/$', views.adm_blog_user, name='adm_blog'),
-    url(r'^adm/logout/$', django.contrib.auth.views.logout, name='logout_adm', kwargs={'next_page': '/adm/'}),
+    url(r'^adm/logout/$', views.logout_adm, name='logout_adm'),
 ]
