@@ -155,12 +155,14 @@ body{
 .posting .nav-pills li a{
 	color: #343d46;
 	background: #fcfcfc;
+	border:solid thin #fcfcfc;
   	transition: all 0.2s linear;
 }
 
 .posting .nav-pills li a:hover{
 	color: #fcfcfc;
 	background: #0e83cd;
+	border:solid thin #0e83cd;
   	transition: all 0.2s linear;
 }
 
@@ -405,9 +407,11 @@ body{
 	background:rgba(122,183,85,0.7);
 	color:#fff;
 	border:solid thin rgba(255,255,255,0.1);
+	border-left:dotted 2px #43662f;
 }
 .pagination > li.disabled:hover > a{
 	background:rgba(122,183,85,0.7);
 	color:#fff;
 	border:solid thin rgba(255,255,255,0.1);
+	border-left:dotted 2px #43662f;
 }

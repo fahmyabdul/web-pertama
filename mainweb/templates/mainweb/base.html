@@ -19,7 +19,6 @@
 	</head>
 	<body>
 	<div class="loader"></div>
-	<div id="profil">
 		<nav class="navbar navbar-default navbar-fixed-top">
 	      <div class="container-fluid">
 	        <div class="navbar-header">
@@ -33,8 +32,8 @@
 	        </div>
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
-	            <li class="{% if request.resolver_match.url_name == 'adm_blog' %}active{% endif %}"><a href="/adm/blog">Blog Management</a></li>
 	            <li class="{% if request.resolver_match.url_name == 'adm_profil' %}active{% endif %}"><a href="/adm/profil">Profil Management</a></li>
+	            <li class="{% if request.resolver_match.url_name == 'adm_blog' %}active{% endif %}"><a href="/adm/blog">Blog Management</a></li>
 	            <li><a href="{% url 'logout_adm' %}">Logout</a></li>
 	          </ul>
 	        </div>

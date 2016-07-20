@@ -14,7 +14,7 @@ def main_view(request):
 
 def login_adm(request):
     if request.user.is_authenticated():
-        return redirect('/adm/profil')
+        return redirect('/adm/blog')
     else:
         return login(request)
 
