@@ -1,46 +1,52 @@
 {% extends 'mainweb/base.html' %}
 {% load staticfiles %}
+{% block title %}
+Blog Post
+{% endblock %}
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url 'adm_blog_post' %}">Blog</a>
+{% endblock %}
 {% block sidebar %}
                 <li>
-                    <a href="/adm/blog" class="{% if request.path == '/adm/blog/' %}active{% endif %}"><span class="glyphicon glyphicon-file"></span> <span>Postingan</span></a>
+                    <a href="/adm/blog/post" class="{% if '/adm/blog/post/' in request.path %}active{% endif %}"><span class="glyphicon glyphicon-file"></span> <span>Postingan</span></a>
                 </li>
                 <li>
-                    <a href="#" class="{% if request.path == '/adm/blog/kategori/' %}active{% endif %}"><span class="glyphicon glyphicon-th-list"></span> <span>Kategori</span></a>
+                    <a href="#" class="{% if '/adm/blog/kategori/' in request.path %}active{% endif %}"><span class="glyphicon glyphicon-th-list"></span> <span>Kategori</span></a>
                 </li>
                 <li>
-                    <a href="#" class="{% if request.path == '/adm/blog/komentar/' %}active{% endif %}"><span class="glyphicon glyphicon-comment"></span> <span>Komentar</span></a>
+                    <a href="#" class="{% if '/adm/blog/komentar/' in request.path %}active{% endif %}"><span class="glyphicon glyphicon-comment"></span> <span>Komentar</span></a>
                 </li>
                 <li>
-                    <a href="user" class="{% if request.path == '/adm/blog/user/' %}active{% endif %}"><span class="glyphicon glyphicon-user"></span> <span>User</span></a>
+                    <a href="/adm/blog/user" class="{% if '/adm/blog/user/' in request.path %}active{% endif %}"><span class="glyphicon glyphicon-user"></span> <span>User</span></a>
                 </li>
                 <li>
-                    <a href="#" class="{% if request.path == '/adm/blog/administrator/' %}active{% endif %}"><span class="glyphicon glyphicon-star"></span> <span>Administrator</span></a>
+                    <a href="#" class="{% if '/adm/blog/administrator/' in request.path %}active{% endif %}"><span class="glyphicon glyphicon-star"></span> <span>Administrator</span></a>
                 </li>
                 <li>
-                    <a href="#" class="{% if request.path == '/adm/blog/settings/' %}active{% endif %}"><span class="glyphicon glyphicon-cog"></span> <span>Settings</span></a>
+                    <a href="#" class="{% if '/adm/blog/settings/' in request.path %}active{% endif %}"><span class="glyphicon glyphicon-cog"></span> <span>Settings</span></a>
                 </li>
 {% endblock %}
 {% block pgtitle %}
 
 				<div class="bagheader">
-				{% if request.path == '/adm/blog/' %}
+				{% if '/adm/blog/post/' in request.path  %}
 				<h2><span class="glyphicon glyphicon-file"></span> Postingan</h2>
-				<span style="color:#c2c4c7;">Hallo {{ user.username }}, ini adalah bagian management postingan blog anda!</span>
-				{% elif request.path == '/adm/blog/kategori/' %}
+				<span style="color:#c2c4c7;">Ini adalah bagian management postingan blog anda!</span>
+				{% elif '/adm/blog/kategori/' in request.path %}
 				<h2><span class="glyphicon glyphicon-th-list"></span> Kategori</h2>
-				<span style="color:#c2c4c7;">Hallo {{ user.username }}, ini adalah bagian management kategori postingan blog anda!</span>
-				{% elif request.path == '/adm/blog/komentar/' %}
+				<span style="color:#c2c4c7;">Ini adalah bagian management kategori postingan blog anda!</span>
+				{% elif '/adm/blog/komentar/' in request.path %}
 				<h2><span class="glyphicon glyphicon-comment"></span> Komentar</h2>
-				<span style="color:#c2c4c7;">Hallo {{ user.username }}, ini adalah bagian management komentar postingan blog anda!</span>
-				{% elif request.path == '/adm/blog/user/' %}
+				<span style="color:#c2c4c7;">Ini adalah bagian management komentar postingan blog anda!</span>
+				{% elif '/adm/blog/user/' in request.path %}
 				<h2><span class="glyphicon glyphicon-user"></span> User</h2>
-				<span style="color:#c2c4c7;">Hallo {{ user.username }}, ini adalah bagian management user blog anda!</span>
-				{% elif request.path == '/adm/blog/administrator/' %}
+				<span style="color:#c2c4c7;">Ini adalah bagian management user blog anda!</span>
+				{% elif '/adm/blog/administrator/' in request.path %}
 				<h2 style="text-shadow:0px 0px 5px #3e9bd7;"><span class="glyphicon glyphicon-star"></span> Administrator</h2>
-				<span style="color:#c2c4c7;">Hallo {{ user.username }}, ini adalah bagian management administrator blog anda!</span>
-				{% elif request.path == '/adm/blog/settings/' %}
+				<span style="color:#c2c4c7;">Ini adalah bagian management administrator blog anda!</span>
+				{% elif '/adm/blog/settings/' in request.path %}
 				<h2><span class="glyphicon glyphicon-cog"></span> Settings</h2>
-				<span style="color:#c2c4c7;">Hallo {{ user.username }}, ini adalah bagian management settingan blog anda!</span>
+				<span style="color:#c2c4c7;">Ini adalah bagian management settingan blog anda!</span>
 				{% endif %}
 				</div>
 {% endblock %}
@@ -145,9 +151,9 @@
 	    			<span class="glyphicon glyphicon-ok opsi hijau" data-toggle="tooltip" title="Publish"></span>
 	    			{% endif %}
 	    			&nbsp;&nbsp;&nbsp;
-	    			<span class="glyphicon glyphicon-pencil opsi kuning" data-toggle="tooltip" title="Edit"></span>
+	    			<a href="{% url 'adm_blog_post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil opsi kuning" data-toggle="tooltip" title="Edit"></span></a>
 	    			&nbsp;&nbsp;&nbsp;
-	    			<span class="glyphicon glyphicon-trash opsi ungu" data-toggle="tooltip" title="Hapus"></span></td>
+	    			<a href="#"><span class="glyphicon glyphicon-trash opsi ungu" data-toggle="tooltip" title="Hapus"></span></td></a>
 				</tr>
 				{% endfor %}
 			</tbody>

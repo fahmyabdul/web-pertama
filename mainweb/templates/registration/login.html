@@ -21,12 +21,23 @@
 		</style>
 	</head>
 <body>
-	<div class="loader"></div>
+	<div class="loader">
+		<div class="someicon">
+			<div><img src="{% static 'img/flg.png' %}" class="img-circle imgicn"></div>
+		</div>
+	</div>
 	{% if form.errors %}
-	<div class="err">Username atau password anda salah!</div>
+	<div class="pesan merah tengah">Username atau password anda salah! Silahkan coba kembali.</div>
 	{% endif %}
 	{% if stat == "bukanadmin" %}
-	<div class="err">Anda Bukan Administrator!</div>
+	<div class="pesan merah tengah">Anda Bukan Administrator!</div>
+	{% endif %}
+    {% if messages %}
+    <div class="pesan hijau tengah">
+	    {% for message in messages %}
+	    {{ message }}
+	    {% endfor %}
+	</div>
 	{% endif %}
 	<div class="container">
 		<div class="main">

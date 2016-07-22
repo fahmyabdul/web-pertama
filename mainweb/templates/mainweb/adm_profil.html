@@ -1,5 +1,8 @@
 {% extends 'mainweb/base.html' %}
 {% load staticfiles %}
+{% block title %}
+Profil
+{% endblock %}
 {% block sidebar %}
                 <li>
                     <a href="#" class="{% if request.path == '/adm/profil/' %}active{% endif %}"><span class="glyphicon glyphicon-dashboard"></span> <span>Header</span></a>

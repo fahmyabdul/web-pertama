@@ -3,9 +3,8 @@ $(window).load(function() {
 });
 
 $(document).ready(function () {
-	$(".err").click(function() {
+	$(".pesan").click(function() {
 		$(this).fadeOut('slow');
 	});
-	$("body").css('overflow-y','auto');
     $('[data-toggle="tooltip"]').tooltip(); 
 });

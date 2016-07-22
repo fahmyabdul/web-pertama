@@ -5,7 +5,6 @@ body{
 	background: #242a31;
 	color:#fff;
 	font-family:'Roboto', sans-serif;
-  	overflow-y: hidden;
 }
 .navbar{
 	background: #343d46; 
@@ -123,11 +122,27 @@ body{
 	box-shadow:0px 0px 13px rgba(0,0,0,0.8); 
 }
 
-.err{
-	text-align:center; background:#ff4c4c; padding:10px;
+.pesan{
+	text-align:center; padding:10px;
 }
 
-.err:hover{
+.pesan.merah{
+	background:#ff4c4c;
+}
+
+.pesan.hijau{
+	background:#7AB755;
+}
+
+.pesan.tengah{
+	text-align: center;
+}
+
+.pesan.kiri{
+	text-align: left;
+}
+
+.pesan:hover{
 	cursor:pointer;
 }
 

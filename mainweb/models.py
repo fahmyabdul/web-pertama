@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.signals import user_logged_in, user_logged_out
 from django.contrib.sessions.models import Session
+from django.contrib import messages
 
 class Bagian(models.Model):
     bagian_id 		= models.AutoField(primary_key=True)
@@ -41,6 +42,7 @@ class Login_log(models.Model):
 		return self.log_authid
 
 def entrilog(sender, request, user, **kwargs):
+	messages.info(request, "Login berhasil dilakukan, selamat datang di administrator Tuan Abdul!")
 	userid = request.user.id
 	login_log = Login_log()
 	login_log.log_authid 	= userid
@@ -50,6 +52,7 @@ def entrilog(sender, request, user, **kwargs):
 	login_log.save()
 
 def dellog(sender, request, user, **kwargs):
+	messages.info(request, "Logout berhasil dilakukan.")
 	userid = request.user.id
 	login_log = Login_log.objects.filter(log_authid=userid)
 	login_log.delete()

@@ -1,5 +1,11 @@
 {% extends 'mainweb/adm_blog.html' %}
 {% load staticfiles %}
+{% block title %}
+Blog User
+{% endblock %}
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{{ adm_blog_user }}">User</a>
+{% endblock %}
 {% block pgcontent %}
 		                <div class="row">
 		                    <div class="col-lg-9">

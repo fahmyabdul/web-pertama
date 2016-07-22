@@ -7,6 +7,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from .models import Bagian
+from .forms import PostForm, CommentForm
 import blog
 
 def main_view(request):
@@ -16,7 +17,7 @@ def main_view(request):
 def login_adm(request):
     if request.user.is_authenticated():
         if request.user.is_staff:
-            return redirect('/adm/blog')
+            return redirect('/adm/blog/post')
         else:
             stat = 'bukanadmin'
             logout(request)
@@ -26,7 +27,7 @@ def login_adm(request):
 
 def logout_adm(request):
     logout(request)
-    return redirect('/adm/')
+    return redirect('login_adm')
 
 
 def adm_profil(request):
@@ -38,7 +39,7 @@ def adm_profil(request):
     else:
         return login_adm(request)
 
-def adm_blog(request):
+def adm_blog_post(request):
     if request.user.is_authenticated():
         alamat      = request.path
         alamat      = alamat.replace("/"," > ")
@@ -70,3 +71,24 @@ def adm_blog_user(request):
         return render(request, 'mainweb/adm_blog_user.html',{'alamats':alamats})
     else:
         return login_adm(request)
+
+def adm_blog_post_detail(request, pk):
+    post = get_object_or_404(blog.models.Post, pk=pk)
+    return render(request, 'mainweb/adm_blog_post_detail.html',{'post':post})
+
+def adm_blog_post_edit(request, pk):
+    alamat = request.path
+    alamat = alamat.replace("/"," > ")
+    alamats = alamat.replace(">", " ", 1)[:-2]
+    post = get_object_or_404(blog.models.Post, pk=pk)
+    if request.method == "POST":
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.save()
+            return redirect('/adm/blog')
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'mainweb/adm_blog_post_edit.html', {'form': form, 'alamats':alamats})

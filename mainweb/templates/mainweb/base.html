@@ -1,7 +1,7 @@
 {% load staticfiles %}
 <html>
 	<head>
-		<title>Tuan Abdul Admin</title>
+		<title>Tuan Abdul Admin | {% block title %}{% endblock %}</title>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +18,11 @@
 		</script>
 	</head>
 	<body>
-	<div class="loader"></div>
+	<div class="loader">
+		<div class="someicon">
+			<div><img src="{% static 'img/flg.png' %}" class="img-circle imgicn"></div>
+		</div>
+	</div>
 		<nav class="navbar navbar-default navbar-fixed-top">
 	      <div class="container-fluid">
 	        <div class="navbar-header">
@@ -32,8 +36,8 @@
 	        </div>
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
-	            <li class="{% if request.resolver_match.url_name == 'adm_profil' %}active{% endif %}"><a href="/adm/profil">Profil Management</a></li>
-	            <li class="{% if request.resolver_match.url_name == 'adm_blog' %}active{% endif %}"><a href="/adm/blog">Blog Management</a></li>
+	            <li class="{% if '/adm/profil' in request.path %}active{% endif %}"><a href="/adm/profil">Profil Management</a></li>
+	            <li class="{% if '/adm/blog' in request.path %}active{% endif %}"><a href="/adm/blog/post">Blog Management</a></li>
 	            <li><a href="{% url 'logout_adm' %}">Logout</a></li>
 	          </ul>
 	        </div>
@@ -62,9 +66,16 @@
 		        <!-- /#sidebar-wrapper -->
 
 		        <!-- Page Content -->
-		        <div style="padding:12px; padding-top:14px; padding-bottom: 10px; background:#101315;"><span class="glyphicon glyphicon-home"></span>&nbsp;{{ alamats }}</div>
+		        <div style="padding:12px; padding-top:14px; padding-bottom: 10px; background:#101315;"><span class="glyphicon glyphicon-home"></span>&nbsp;{% block breadcrumbs %}Home{% endblock %}</div>
 		        {% block pgtitle %}
 		        {% endblock %}
+		        {% if messages %}
+		        <div class="pesan hijau kiri">
+				    {% for message in messages %}
+				    {{ message }}
+				    {% endfor %}
+				</div>
+				{% endif %}
 		        <div id="page-content-wrapper">
 		            <div class="container-fluid">
 				      	<div class="blgpct visible-xs" style="margin-bottom:5px;">

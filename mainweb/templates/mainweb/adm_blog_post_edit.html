@@ -1,0 +1,24 @@
+{% extends 'mainweb/adm_blog.html' %}
+{% load staticfiles %}
+
+{% block title %}
+Blog Post Edit
+{% endblock %}
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{{ request.path }}">Edit</a>
+{% endblock %}
+{% block pgcontent %}
+	<div class="row">
+		<div class="col-lg-6">
+			<h3>Edit Post</h3>
+			<div class="box-shdw posting" style="padding-top:20px;">
+				<div class="container-fluid">
+				    <form method="POST" class="post-form" style=" color:#000;">{% csrf_token %}
+				        {{ form.as_p }}
+				        <button type="submit" class="save btn btn-default">Save</button>
+				    </form>
+			    </div>
+		    </div>
+	    </div>
+    </div>
+{% endblock %}
