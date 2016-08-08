@@ -1,13 +1,11 @@
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required,user_passes_test
 from django.contrib.auth.views import login,logout
 from django.contrib.auth.models import User
 from django.utils import timezone
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse
 from .models import Bagian
 from .forms import PostForm, CommentForm
+from .fungsi import halaman, entrilog, dellog, Totalposting
 import blog
 
 def main_view(request):
@@ -29,66 +27,51 @@ def logout_adm(request):
     logout(request)
     return redirect('login_adm')
 
-
+@user_passes_test(lambda u:u.is_staff, login_url='/adm/')
 def adm_profil(request):
     if request.user.is_authenticated():
-        alamat = request.path
-        alamat = alamat.replace("/"," > ")
-        alamats = alamat.replace(">", " ", 1)[:-2]
-        return render(request, 'mainweb/adm_profil.html', {'alamats':alamats})
+        return render(request, 'mainweb/adm_profil.html')
     else:
         return login_adm(request)
 
+@user_passes_test(lambda u:u.is_staff, login_url='/adm/')
 def adm_blog_post(request):
     if request.user.is_authenticated():
-        alamat      = request.path
-        alamat      = alamat.replace("/"," > ")
-        alamats     = alamat.replace(">", " ", 1)[:-2]
         posts_list  = blog.models.Post.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
-        totposts    = posts_list.count()
-        totpubs     = blog.models.Post.objects.filter(published_date__isnull=False).count()
-        totunpubs   = blog.models.Post.objects.filter(published_date__isnull=True).count()
         users       = User.objects.all()
-        paginator   = Paginator(posts_list,10)
-        page        = request.GET.get('page')
-        try:
-            posts = paginator.page(page)
-        except PageNotAnInteger:
-            posts = paginator.page(1)
-        except EmptyPage:
-            posts = paginator.page(paginator.num_pages)
+        posts       = halaman(request,posts_list,10)
         return render(request, 'mainweb/adm_blog.html', 
-        {'posts' : posts, 'totposts': totposts, 'totpubs' : totpubs,
-        'totunpubs' : totunpubs, 'users' :users,'alamats':alamats })
+        {'posts' : posts, 'totposts': Totalposting().totposts, 'totpubs' : Totalposting().totpubs,
+        'totunpubs' : Totalposting().totunpubs, 'users' :users })
     else:
         return login_adm(request)
 
+@user_passes_test(lambda u:u.is_staff, login_url='/adm/')
 def adm_blog_user(request):
     if request.user.is_authenticated():
-        alamat = request.path
-        alamat = alamat.replace("/"," > ")
-        alamats = alamat.replace(">", " ", 1)[:-2]
-        return render(request, 'mainweb/adm_blog_user.html',{'alamats':alamats})
+        return render(request, 'mainweb/adm_blog_user.html')
     else:
         return login_adm(request)
 
+@user_passes_test(lambda u:u.is_staff, login_url='/adm/')
 def adm_blog_post_detail(request, pk):
     post = get_object_or_404(blog.models.Post, pk=pk)
     return render(request, 'mainweb/adm_blog_post_detail.html',{'post':post})
 
+@user_passes_test(lambda u:u.is_staff, login_url='/adm/')
 def adm_blog_post_edit(request, pk):
-    alamat = request.path
-    alamat = alamat.replace("/"," > ")
-    alamats = alamat.replace(">", " ", 1)[:-2]
     post = get_object_or_404(blog.models.Post, pk=pk)
     if request.method == "POST":
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            post.published_date = timezone.now()
+            if 'Publikasi' in request.POST:
+                post.published_date = timezone.now()
             post.save()
-            return redirect('/adm/blog')
+            return redirect('/adm/blog/post')
     else:
         form = PostForm(instance=post)
-    return render(request, 'mainweb/adm_blog_post_edit.html', {'form': form, 'alamats':alamats})
+    return render(request, 'mainweb/adm_blog_post_edit.html', {'form': form, 'totposts': Totalposting().totposts,
+        'totpubs' : Totalposting().totpubs,
+        'totunpubs' : Totalposting().totunpubs })

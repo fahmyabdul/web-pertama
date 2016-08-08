@@ -12,7 +12,6 @@
 
 #wrapper {
     padding-left: 0;
-    margin-top: 50px;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -36,6 +35,7 @@
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
     box-shadow:0px 0px 13px rgba(0,0,0,0.8); 
+    z-index: 1600;
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -45,12 +45,18 @@
 #page-content-wrapper {
     width: 100%;
     position: absolute;
-    padding: 15px;
+    padding-top:50px;
+    padding-bottom: 15px;
 }
 
 #wrapper.toggled #page-content-wrapper {
     position: absolute;
     margin-right: -220px;
+}
+
+#wrapper.toggled .navbar{
+    padding-left: 230px;
+    transition: 0.33s linear;
 }
 
 /* Sidebar Styles */
@@ -68,6 +74,16 @@
     line-height: 40px;
     font-size: 15px;
 }
+.sidebar-nav li.mnu-btn a{
+    padding-top:7px;
+    padding-bottom: 6px;
+}
+
+#wrapper.toggled .sidebar-nav li.mnu-btn a{
+    padding-top:5px;
+    padding-bottom: 5px;
+}
+
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
@@ -108,14 +124,14 @@
     text-decoration: none;
     color: #fff;
     background: #262c31;
-    border-right: solid 2px #0e83cd;
+    border-right: solid 3px #0e83cd;
 }
 
 .sidebar-nav li a:hover {
     text-decoration: none;
     color: #fff;
     background: #262c31;
-    border-right: solid 1px #0e83cd;
+    border-right: solid 2px #0e83cd;
 }
 
 .sidebar-nav li a:active,
@@ -139,6 +155,11 @@
 }
 
 @media(min-width:768px) {
+    .navbar{
+    padding-left: 230px;
+    transition: 0.31s linear;
+    }
+
     #wrapper {
         padding-left: 220px;
     }
@@ -164,9 +185,19 @@
         transition: 0.5s linear;
     }
 
+    #wrapper.toggled .navbar{
+        padding-left: 49px;
+        transition: 0.33s linear;
+    }
+
     #wrapper.toggled .sidebar-nav > .sidebar-brand {
         visibility: hidden;
         transition: 0.2s linear;
+    }
+
+    #wrapper.toggled .sidebar-nav li.mnu-btn a{
+        padding-top:19px;
+        padding-bottom: 19px;
     }
 
     #wrapper.toggled .sidebar-nav li a {
@@ -219,7 +250,8 @@
     }
 
     #page-content-wrapper {
-        padding: 20px;
+        padding-top:50px;
+        padding-bottom: 20px;
         position: relative;
     }
 

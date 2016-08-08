@@ -8,7 +8,7 @@ Blog Post
 {% endblock %}
 {% block sidebar %}
                 <li>
-                    <a href="/adm/blog/post" class="{% if '/adm/blog/post/' in request.path %}active{% endif %}"><span class="glyphicon glyphicon-file"></span> <span>Postingan</span></a>
+                    <a href="/adm/blog/post" class="{% if '/adm/blog/post/' in request.path %}active{% endif %}"><span class="glyphicon glyphicon-file"></span> <span>Postingan</span><span class="badge">{{ totposts }}</span></a>
                 </li>
                 <li>
                     <a href="#" class="{% if '/adm/blog/kategori/' in request.path %}active{% endif %}"><span class="glyphicon glyphicon-th-list"></span> <span>Kategori</span></a>
@@ -27,84 +27,84 @@ Blog Post
                 </li>
 {% endblock %}
 {% block pgtitle %}
-
 				<div class="bagheader">
 				{% if '/adm/blog/post/' in request.path  %}
 				<h2><span class="glyphicon glyphicon-file"></span> Postingan</h2>
-				<span style="color:#c2c4c7;">Ini adalah bagian management postingan blog anda!</span>
 				{% elif '/adm/blog/kategori/' in request.path %}
 				<h2><span class="glyphicon glyphicon-th-list"></span> Kategori</h2>
-				<span style="color:#c2c4c7;">Ini adalah bagian management kategori postingan blog anda!</span>
 				{% elif '/adm/blog/komentar/' in request.path %}
 				<h2><span class="glyphicon glyphicon-comment"></span> Komentar</h2>
-				<span style="color:#c2c4c7;">Ini adalah bagian management komentar postingan blog anda!</span>
 				{% elif '/adm/blog/user/' in request.path %}
 				<h2><span class="glyphicon glyphicon-user"></span> User</h2>
-				<span style="color:#c2c4c7;">Ini adalah bagian management user blog anda!</span>
 				{% elif '/adm/blog/administrator/' in request.path %}
 				<h2 style="text-shadow:0px 0px 5px #3e9bd7;"><span class="glyphicon glyphicon-star"></span> Administrator</h2>
-				<span style="color:#c2c4c7;">Ini adalah bagian management administrator blog anda!</span>
 				{% elif '/adm/blog/settings/' in request.path %}
 				<h2><span class="glyphicon glyphicon-cog"></span> Settings</h2>
-				<span style="color:#c2c4c7;">Ini adalah bagian management settingan blog anda!</span>
 				{% endif %}
 				</div>
 {% endblock %}
-{% block pgcontent %}
+{% block statistik %}
 	<div class="row">
 	<div class="col-lg-12">
-	<h3>Statistik Postingan</h3>
+	<h3></h3>
 		<div class="row">
-	    	<div class="col-md-2">
-	            <div class="box-shdw stat biru">
-	            	<div>
-	            	<h1>{{ totposts }}</h1>
-	            	<span>Postingan</span></div>
+	    	<div class="col-md-3 col-sm-6 col-xs-12">
+	            <div class="stat">
+	            	<div class="body">
+	            	<div class="icn bg-biru"><span class="glyphicon glyphicon-list-alt"></span></div>
+	            	<div class="txt"><span class="stat-judul">Postingan</span><span class="stat-isi">{{ totposts }}</span></div>
+	            	</div>
 	            </div>
 	        </div>
-	    	<div class="col-md-2">
-	            <div class="box-shdw stat hijau">
-	            	<div>
-	            	<h1>{{ totpubs }}</h1>
-	            	<span>Published</span></div>
+	    	<div class="col-md-3 col-sm-6 col-xs-12">
+	            <div class="stat">
+	            	<div class="body">
+	            	<div class="icn bg-hijau"><span class="glyphicon glyphicon-eye-open"></span></div>
+	            	<div class="txt"><span class="stat-judul">Published</span><span class="stat-isi">{{ totpubs }}</span></div>
+	            	</div>
 	            </div>
 	        </div>
-	    	<div class="col-md-2">
-	            <div class="box-shdw stat merah">
-	            	<div>
-	            	<h1>{{ totunpubs }}</h1>
-	            	<span>Unpublished</span></div>
+	    	<div class="col-md-3 col-sm-6 col-xs-12">
+	            <div class="stat">
+	            	<div class="body">
+	            	<div class="icn bg-merah"><span class="glyphicon glyphicon-eye-close"></span></div>
+	            	<div class="txt"><span class="stat-judul">Unpublished</span><span class="stat-isi">{{ totunpubs }}</span></div>
+	            	</div>
 	            </div>
 	        </div>
-	    	<div class="col-md-2">
-	            <div class="box-shdw stat hijaumd">
-	            	<div>
-	            	<h1>0</h1>
-	            	<span>Komentar</span></div>
+	    	<div class="col-md-3 col-sm-6 col-xs-12">
+	            <div class="stat">
+	            	<div class="body">
+	            	<div class="icn bg-hijaumd"><span class="glyphicon glyphicon-comment"></span></div>
+	            	<div class="txt"><span class="stat-judul">Komentar</span><span class="stat-isi">0</span></div>
+	            	</div>
 	            </div>
 	        </div>
-	    	<div class="col-md-2">
-	            <div class="box-shdw stat birumd">
-	            	<div>
-	            	<h1>0</h1>
-	            	<span>Suka</span></div>
+	    	<div class="col-md-3 col-sm-6 col-xs-12">
+	            <div class="stat">
+	            	<div class="body">
+	            	<div class="icn bg-birumd"><span class="glyphicon glyphicon-thumbs-up"></span></div>
+	            	<div class="txt"><span class="stat-judul">Suka</span><span class="stat-isi">0</span></div>
+	            	</div>
 	            </div>
 	        </div>
-	    	
-	    	<div class="col-md-2">
-	            <div class="box-shdw stat merahmd">
-	            	<div>
-	            	<h1>0</h1>
-	            	<span>Favorite</span></div>
+	    	<div class="col-md-3 col-sm-6 col-xs-12">
+	            <div class="stat">
+	            	<div class="body">
+	            	<div class="icn bg-merahmd"><span class="glyphicon glyphicon-heart"></span></div>
+	            	<div class="txt"><span class="stat-judul">Favorite</span><span class="stat-isi">0</span></div>
+	            	</div>
 	            </div>
 	        </div>
 	    </div>
 	</div>
+	</div>
+{% endblock %}
+{% block pgcontent %}
+	<div class="row">
 	<div class="col-lg-12">
 	<h3>Manage Postingan</h3>
-	<div class="box-shdw posting">
-		<div class="container-fluid header">
-	    	<ul class="nav nav-pills">
+	    	<ul class="nav nav-pills pills-admin">
 	        	<li class="active"><a href="#" class="allpost"><span class="glyphicon glyphicon-list-alt"></span> All Posts</a></li>
 	        	<li><a href="#" class="published"><span class="glyphicon glyphicon-eye-open"></span> Published</a></li>
 	        	<li><a href="#" class="unpublished"><span class="glyphicon glyphicon-eye-close"></span> Unpublished</a></li>
@@ -112,7 +112,7 @@ Blog Post
 	        	<li><a href="#" style="margin-left:2px; font-weight:bold;">&nbsp;+&nbsp;</a></li>
 	        	<li><input type="text" class="form-control" placeholder="Search"></li>
 	    	</ul>
-		</div>
+	<div class="box-shdw posting">
 		<div class="table-responsive">
 		<table class="table" style="margin-bottom:0px;">
 			<thead style="">

@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'mainweb',
     'blog',
     'django.contrib.admin',
+    'crispy_forms',
+    'fm',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -125,6 +127,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 LOGIN_REDIRECT_URL = '/adm/'

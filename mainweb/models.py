@@ -40,22 +40,3 @@ class Login_log(models.Model):
 
 	def __str__(self):
 		return self.log_authid
-
-def entrilog(sender, request, user, **kwargs):
-	messages.info(request, "Login berhasil dilakukan, selamat datang di administrator Tuan Abdul!")
-	userid = request.user.id
-	login_log = Login_log()
-	login_log.log_authid 	= userid
-	login_log.log_date 		= timezone.now()
-	login_log.log_status	= 1
-	login_log.log_session 	= request.session.session_key
-	login_log.save()
-
-def dellog(sender, request, user, **kwargs):
-	messages.info(request, "Logout berhasil dilakukan.")
-	userid = request.user.id
-	login_log = Login_log.objects.filter(log_authid=userid)
-	login_log.delete()
-
-user_logged_in.connect(entrilog)
-user_logged_out.connect(dellog)

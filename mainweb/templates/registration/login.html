@@ -30,7 +30,7 @@
 	<div class="pesan merah tengah">Username atau password anda salah! Silahkan coba kembali.</div>
 	{% endif %}
 	{% if stat == "bukanadmin" %}
-	<div class="pesan merah tengah">Anda Bukan Administrator!</div>
+	<div class="pesan merah tengah">Anda Bukan Administrator! Akun anda kami logout, silahkan login kembali di bagian user!</div>
 	{% endif %}
     {% if messages %}
     <div class="pesan hijau tengah">
@@ -54,13 +54,13 @@
 			  		<div class="inputbx">
 			  			<div class="input-group">
 							<span class="input-group-addon" id="sizing-addon2" style="border-radius:0px;"><span class="glyphicon glyphicon-user"></span></span>
-							<input type="text" name="username" class="form-control" placeholder="Username anda ..." aria-describedby="sizing-addon2" required>
+							<input type="text" name="username" class="form-control blck" placeholder="Username anda ..." aria-describedby="sizing-addon2" required>
 						</div>
 					</div>
 			  		<div class="inputbx">
 			  			<div class="input-group">
 							<span class="input-group-addon" id="sizing-addon2" style="border-radius:0px"><span class="glyphicon glyphicon-lock"></span></span>
-							<input type="password" name="password" class="form-control" placeholder="Password anda ..." aria-describedby="sizing-addon2" required>
+							<input type="password" name="password" class="form-control blck" placeholder="Password anda ..." aria-describedby="sizing-addon2" required>
 						</div>
 					</div>
 			  		<div class="inputbx"><input type="submit" value="Masuk" class="tombol"></div>

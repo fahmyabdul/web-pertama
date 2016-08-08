@@ -213,10 +213,6 @@
 			  transition: transform 250ms ease-in-out;
 			}
 
-			.navbar .navbar-nav li:hover:after { 
-				transform: scaleX(1); 
-			}
-
 			.navbar .navbar-collapse {
 				text-align: center;
 			}
